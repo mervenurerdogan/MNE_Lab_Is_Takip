@@ -1,0 +1,91 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<DeneylerTBL>
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+    <title>Deney Listesi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+</head>
+<body>
+    <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+        <thead>
+            <tr class="w3-light-grey w3-hover-red">
+                <th>Deney ID</th>
+                <th>Deney Adı</th>
+                <th>Deney Tür</th>
+                <th>Deney Yapan Personel</th>
+                <th>Numune Ad Soyad</th>
+                <th>Deney Yapılma Tarihi</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var deney in Model)
+            {
+
+
+                <tr class="w3-hover-blue">
+                    <td>@deney.DeneyID</td>
+                    <td>@deney.DeneyAdi</td>
+                    <td>@deney.DeneyTurTBL.DeneyTur</td>
+                    <td>@deney.PersonellerTBL.PersonelAd &nbsp @deney.PersonellerTBL.PersonelSoyad</td>
+
+
+                    <td>@deney.NumunelerTBL.NumuneAd &nbsp @deney.NumunelerTBL.NumuneSoyad</td>
+
+
+                    <td>@Convert.ToDateTime(deney.DeneyTarih).ToString("dd/MM/yyyy")</td>
+
+
+
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+
+   
+    <a href="/Anasayfa/Index" class="btn btn-success">Anasayfa</a>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                lengthChange: false,
+                buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis']
+            });
+
+            table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<RaporlarTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<html>
+
+<head>
+    <title>RaporGörüntüle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>Onaylanmayan Rapor Listesi</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Rapor Adı</th>
+            <th>Rapor No</th>
+            <th>Rapor Düzenlenme Tarihi</th>
+            <th>Laboratuvar</th>
+            <th>Rapor Çıkaran Personel</th>
+            <th>Rapor Sahibi </th>
+            <th>Rapor Onayla</th>
+
+
+
+
+
+
+
+
+        </tr>
+
+
+
+        @foreach (var rap in Model)
+        {
+
+            <tr class="w3-hover-blue">
+                <td>@rap.RaporTurTBL.RaporTurID</td>
+                <td>@rap.RaporNo</td>
+                <td>@Convert.ToDateTime(rap.RaporDuzenTarih).ToShortDateString()</td>
+                <td>@rap.LaboratuvarlarTBL.LabKodu</td>
+                <td>@rap.PersonellerTBL.PersonelAd &nbsp @rap.PersonellerTBL.PersonelSoyad</td>
+                <td>@rap.NumunelerTBL.NumuneAd &nbsp @rap.NumunelerTBL.NumuneSoyad</td>
+                <td><a href="/OnaylananRapor/OnayEkle/@rap.RaporID" class="btn btn-danger" > Rapor Onayla</a></td>
+
+
+
+
+
+            </tr>
+
+        }
+
+    </table>
+    <a href="/Rapor/RaporEkle" class="btn btn-primary">Rapor Ekle</a>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<OdenenFaturaTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<html>
+
+<head>
+    <title>ÖdenenFaturalar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>Ödenen Fatura Listesi</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Ödenen Fatura </th>
+            <th>İşlemi Yapan Personel</th>
+            <th>Ödeme Tarihi</th>
+
+
+
+
+
+
+
+        </tr>
+
+
+
+        @foreach (var rap in Model)
+        {
+
+            <tr class="w3-hover-blue">
+                <td>@rap.FaturalarTBL.FaturaNo</td>
+                <td>@rap.PersonellerTBL.PersonelAd &nbsp @rap.PersonellerTBL.PersonelSoyad</td>
+                <td>@Convert.ToDateTime(rap.OdenmeTarih).ToShortDateString()</td>
+
+
+
+
+
+
+
+            </tr>
+
+        }
+
+    </table>
+    <a href="/Rapor/RaporEkle" class="btn btn-primary">Odeme Yap</a>
+</body>
+
+</html>

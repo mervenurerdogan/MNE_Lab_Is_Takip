@@ -1,0 +1,74 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<IzınTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+
+
+<html>
+
+<head>
+    <title>PersonelGörüntüle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>İzinli Personel Listesi</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>İzinli Personel ID</th>
+            <th>Personel Adı ve Soyadı</th>
+            <th>Personelin Görevi</th>
+            <th>İzin Başlangıç Tarihi</th>
+            <th>İzin Bitiş Tarihi</th>
+            <th>İzin İptal</th>
+
+
+
+
+
+
+
+        </tr>
+
+
+
+        @foreach (var iper in Model)
+        {
+           
+
+            <tr class="w3-hover-blue">
+                <td>@iper.IzinID</td>
+                <td>@iper.PersonellerTBL.PersonelAd &nbsp @iper.PersonellerTBL.PersonelSoyad</td>
+            
+       
+                <td>@iper.PersonellerTBL.PersonelTurTBL.PersonelTur</td>
+
+                <td>@Convert.ToDateTime(iper.IzinBaslangicTarih).ToString("dd/MM/yyyy")</td>
+              <td>@Convert.ToDateTime(iper.IzınBitisTarih).ToString("dd/MM/yyyy")</td>
+              <td><a href="" class="btn btn-danger">İzin İptal</a> </td>
+
+
+
+            </tr>
+
+        }
+
+    </table>
+    <a href="/Izin/IzinAl" class="btn btn-primary">İzin Ekle</a>
+</body>
+
+</html>
+
+
+

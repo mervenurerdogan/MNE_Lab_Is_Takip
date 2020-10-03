@@ -1,0 +1,67 @@
+﻿@model MneLabMVC.Models.Entitys.MalzemelerTBL
+@{
+    ViewBag.Title = "MalzemeGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Cihaz/Malzeme Detay</h2>
+
+<html>
+<head>
+    <title>MalzemeGuncelle</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+
+<body>
+    @using (Html.BeginForm("MalzemeGuncelle", "CihazMalz", FormMethod.Post))
+    {
+
+
+    <form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" method="post">
+        
+        <br />
+        <div class="w3-row w3-section">
+            <label style="font-size:large">Cihaz/Malzeme Adı</label>
+            <div class="w3-rest">
+                @Html.TextBoxFor(x => x.Malzeme, new { @class = "form-control" })
+
+            </div>
+        </div>
+        <br/>
+        
+
+        <div class="w3-row w3-section">
+          
+            <label style="font-size:large" >Cihaz/Malzeme Detayı</label>
+            <div class="w3-rest">
+                @Html.TextAreaFor(x => x.MalzemeDetay, new { @class = "form-control" })
+
+            </div>
+        </div>
+
+
+    </form>
+
+
+    <br />
+
+        <div>
+            <button class="btn btn-warning">Güncelle</button>
+
+        </div>
+
+        @Html.HiddenFor(n => n.MalzemeID)
+
+
+    }
+
+</body>
+
+</html>
+

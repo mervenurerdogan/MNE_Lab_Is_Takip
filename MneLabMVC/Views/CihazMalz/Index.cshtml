@@ -1,0 +1,61 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<MalzemelerTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<html>
+
+<head>
+    <title>PersonelGörüntüle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>Personel Listesi</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Malzeme ID</th>
+            <th>Malzeme/Cihaz Adı</th>
+          
+            <th>Detay</th>
+          
+
+
+
+
+        </tr>
+
+
+
+        @foreach (var malz in Model)
+        {
+
+            <tr class="w3-hover-blue">
+               <td>@malz.MalzemeID</td>
+                <td>@malz.Malzeme</td>
+              
+                <td><a href="/CihazMalz/MalzemeGetir/@malz.MalzemeID" class="btn btn-success">Malzeme Detay</a></td>
+
+
+
+            </tr>
+
+        }
+
+    </table>
+    <a href="/CihazMalz/MalzemeEkle" class="btn btn-primary">Malzeme Ekle</a>
+</body>
+
+</html>
+
+

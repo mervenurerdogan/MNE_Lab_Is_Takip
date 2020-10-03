@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LaboratuvarDBModelStoreContainer" CdmEntityContainer="LaboratuvarDBEntities2">
+    <EntitySetMapping Name="DeneylerTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.DeneylerTBL">
+        <MappingFragment StoreEntitySet="DeneylerTBL">
+          <ScalarProperty Name="DeneyID" ColumnName="DeneyID" />
+          <ScalarProperty Name="DeneyAdi" ColumnName="DeneyAdi" />
+          <ScalarProperty Name="DeneyTurID" ColumnName="DeneyTurID" />
+          <ScalarProperty Name="DeneyYapanPersonelID1" ColumnName="DeneyYapanPersonelID1" />
+          <ScalarProperty Name="NumuneID" ColumnName="NumuneID" />
+          <ScalarProperty Name="NumuneTurID" ColumnName="NumuneTurID" />
+          <ScalarProperty Name="DeneyUcret" ColumnName="DeneyUcret" />
+          <ScalarProperty Name="DeneyTarih" ColumnName="DeneyTarih" />
+          <ScalarProperty Name="DeneyDurum" ColumnName="DeneyDurum" />
+          <ScalarProperty Name="KullanılanMalzID2" ColumnName="KullanılanMalzID2" />
+          <ScalarProperty Name="RaporTurID" ColumnName="RaporTurID" />
+          <ScalarProperty Name="FaturaTurID" ColumnName="FaturaTurID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeneyOnayTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.DeneyOnayTBL">
+        <MappingFragment StoreEntitySet="DeneyOnayTBL">
+          <ScalarProperty Name="DeneyOnayID" ColumnName="DeneyOnayID" />
+          <ScalarProperty Name="DeneyID" ColumnName="DeneyID" />
+          <ScalarProperty Name="DeneyOnayTarih" ColumnName="DeneyOnayTarih" />
+          <ScalarProperty Name="DeneyOnayDurumu" ColumnName="DeneyOnayDurumu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeneyPersonelIslemTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.DeneyPersonelIslemTBL">
+        <MappingFragment StoreEntitySet="DeneyPersonelIslemTBL">
+          <ScalarProperty Name="IslemID" ColumnName="IslemID" />
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+          <ScalarProperty Name="DeneyID" ColumnName="DeneyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeneyTurTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.DeneyTurTBL">
+        <MappingFragment StoreEntitySet="DeneyTurTBL">
+          <ScalarProperty Name="DeneyTurID" ColumnName="DeneyTurID" />
+          <ScalarProperty Name="DeneyTur" ColumnName="DeneyTur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DuyurularTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.DuyurularTBL">
+        <MappingFragment StoreEntitySet="DuyurularTBL">
+          <ScalarProperty Name="DuyuruID" ColumnName="DuyuruID" />
+          <ScalarProperty Name="DuyuruBaşlık" ColumnName="DuyuruBaşlık" />
+          <ScalarProperty Name="Duyruİçerik" ColumnName="Duyruİçerik" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="DuyuruDurum" ColumnName="DuyuruDurum" />
+          <ScalarProperty Name="DuyuruEkleyenPersonelID" ColumnName="DuyuruEkleyenPersonelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaturalarTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.FaturalarTBL">
+        <MappingFragment StoreEntitySet="FaturalarTBL">
+          <ScalarProperty Name="FaturaID" ColumnName="FaturaID" />
+          <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+          <ScalarProperty Name="FaturaTarih" ColumnName="FaturaTarih" />
+          <ScalarProperty Name="LabID" ColumnName="LabID" />
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+          <ScalarProperty Name="NumuneID" ColumnName="NumuneID" />
+          <ScalarProperty Name="FaturaDurumu" ColumnName="FaturaDurumu" />
+          <ScalarProperty Name="FaturaTutar" ColumnName="FaturaTutar" />
+          <ScalarProperty Name="FaturaTurID" ColumnName="FaturaTurID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaturaTurTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.FaturaTurTBL">
+        <MappingFragment StoreEntitySet="FaturaTurTBL">
+          <ScalarProperty Name="FaturaTurID" ColumnName="FaturaTurID" />
+          <ScalarProperty Name="FaturaTur" ColumnName="FaturaTur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IzınTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.IzınTBL">
+        <MappingFragment StoreEntitySet="IzınTBL">
+          <ScalarProperty Name="IzinID" ColumnName="IzinID" />
+          <ScalarProperty Name="IzinAlanPersonelID" ColumnName="IzinAlanPersonelID" />
+          <ScalarProperty Name="IzınAlanPersonelGoreviID" ColumnName="IzınAlanPersonelGoreviID" />
+          <ScalarProperty Name="PersonelIzinDurumu" ColumnName="PersonelIzinDurumu" />
+          <ScalarProperty Name="IzinBaslangicTarih" ColumnName="IzinBaslangicTarih" />
+          <ScalarProperty Name="IzınBitisTarih" ColumnName="IzınBitisTarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LaboratuvarlarTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.LaboratuvarlarTBL">
+        <MappingFragment StoreEntitySet="LaboratuvarlarTBL">
+          <ScalarProperty Name="LabID" ColumnName="LabID" />
+          <ScalarProperty Name="LabKodu" ColumnName="LabKodu" />
+          <ScalarProperty Name="LabTurID" ColumnName="LabTurID" />
+          <ScalarProperty Name="LabDurum" ColumnName="LabDurum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LabTurTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.LabTurTBL">
+        <MappingFragment StoreEntitySet="LabTurTBL">
+          <ScalarProperty Name="LabTurID" ColumnName="LabTurID" />
+          <ScalarProperty Name="LabTur" ColumnName="LabTur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MalzemelerTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.MalzemelerTBL">
+        <MappingFragment StoreEntitySet="MalzemelerTBL">
+          <ScalarProperty Name="MalzemeID" ColumnName="MalzemeID" />
+          <ScalarProperty Name="Malzeme" ColumnName="Malzeme" />
+          <ScalarProperty Name="MalzemeDetay" ColumnName="MalzemeDetay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesajlarTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.MesajlarTBL">
+        <MappingFragment StoreEntitySet="MesajlarTBL">
+          <ScalarProperty Name="MesajlarID" ColumnName="MesajlarID" />
+          <ScalarProperty Name="Gonderen" ColumnName="Gonderen" />
+          <ScalarProperty Name="Alıcı" ColumnName="Alıcı" />
+          <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Konu" ColumnName="Konu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NumunelerTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.NumunelerTBL">
+        <MappingFragment StoreEntitySet="NumunelerTBL">
+          <ScalarProperty Name="NumuneID" ColumnName="NumuneID" />
+          <ScalarProperty Name="NumuneAd" ColumnName="NumuneAd" />
+          <ScalarProperty Name="NumuneSoyad" ColumnName="NumuneSoyad" />
+          <ScalarProperty Name="NumuneTürID" ColumnName="NumuneTürID" />
+          <ScalarProperty Name="NumuneAlanPersonelID" ColumnName="NumuneAlanPersonelID" />
+          <ScalarProperty Name="LabID" ColumnName="LabID" />
+          <ScalarProperty Name="LabTurID" ColumnName="LabTurID" />
+          <ScalarProperty Name="NumuneAlinisTarih" ColumnName="NumuneAlinisTarih" />
+          <ScalarProperty Name="NumuneMiktar" ColumnName="NumuneMiktar" />
+          <ScalarProperty Name="NumuneAdet" ColumnName="NumuneAdet" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="NumSifre1" ColumnName="NumSifre1" />
+          <ScalarProperty Name="NumSifre2" ColumnName="NumSifre2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NumuneTurTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.NumuneTurTBL">
+        <MappingFragment StoreEntitySet="NumuneTurTBL">
+          <ScalarProperty Name="NumuneTurID" ColumnName="NumuneTurID" />
+          <ScalarProperty Name="NumuneTur" ColumnName="NumuneTur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OdenenFaturaTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.OdenenFaturaTBL">
+        <MappingFragment StoreEntitySet="OdenenFaturaTBL">
+          <ScalarProperty Name="IslemYapanPersonel" ColumnName="IslemYapanPersonel" />
+          <ScalarProperty Name="ÖdenenFaturaID" ColumnName="ÖdenenFaturaID" />
+          <ScalarProperty Name="FaturaID" ColumnName="FaturaID" />
+          <ScalarProperty Name="OdenmeTarih" ColumnName="OdenmeTarih" />
+          <ScalarProperty Name="FaturaOdenmeDurum" ColumnName="FaturaOdenmeDurum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OnaylananRaporTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.OnaylananRaporTBL">
+        <MappingFragment StoreEntitySet="OnaylananRaporTBL">
+          <ScalarProperty Name="OnaylayanPersonelID" ColumnName="OnaylayanPersonelID" />
+          <ScalarProperty Name="OnayRaporID" ColumnName="OnayRaporID" />
+          <ScalarProperty Name="RaporID" ColumnName="RaporID" />
+          <ScalarProperty Name="OnayRaporDurum" ColumnName="OnayRaporDurum" />
+          <ScalarProperty Name="OnayTarihi" ColumnName="OnayTarihi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonellerTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.PersonellerTBL">
+        <MappingFragment StoreEntitySet="PersonellerTBL">
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+          <ScalarProperty Name="PersonelAd" ColumnName="PersonelAd" />
+          <ScalarProperty Name="PersonelSoyad" ColumnName="PersonelSoyad" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="KullanıcıAdi" ColumnName="KullanıcıAdi" />
+          <ScalarProperty Name="Sifre1" ColumnName="Sifre1" />
+          <ScalarProperty Name="Sifre2" ColumnName="Sifre2" />
+          <ScalarProperty Name="PersonelTurID" ColumnName="PersonelTurID" />
+          <ScalarProperty Name="LabID" ColumnName="LabID" />
+          <ScalarProperty Name="PersonelDurum" ColumnName="PersonelDurum" />
+          <ScalarProperty Name="PersonelSilmeDurum" ColumnName="PersonelSilmeDurum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonelTurTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.PersonelTurTBL">
+        <MappingFragment StoreEntitySet="PersonelTurTBL">
+          <ScalarProperty Name="PersonelTurID" ColumnName="PersonelTurID" />
+          <ScalarProperty Name="PersonelTur" ColumnName="PersonelTur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RaporlarTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.RaporlarTBL">
+        <MappingFragment StoreEntitySet="RaporlarTBL">
+          <ScalarProperty Name="RaporID" ColumnName="RaporID" />
+          <ScalarProperty Name="LabID" ColumnName="LabID" />
+          <ScalarProperty Name="NumuneID" ColumnName="NumuneID" />
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+          <ScalarProperty Name="RaporNo" ColumnName="RaporNo" />
+          <ScalarProperty Name="RaporDurum" ColumnName="RaporDurum" />
+          <ScalarProperty Name="RaporDuzenTarih" ColumnName="RaporDuzenTarih" />
+          <ScalarProperty Name="RaporTurID" ColumnName="RaporTurID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RaporTurTBL">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.RaporTurTBL">
+        <MappingFragment StoreEntitySet="RaporTurTBL">
+          <ScalarProperty Name="RaporTurID" ColumnName="RaporTurID" />
+          <ScalarProperty Name="RaporTur" ColumnName="RaporTur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LaboratuvarDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,72 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<DeneylerTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<html>
+
+<head>
+    <title>DeneyGörüntüle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>Yapılan Tüm Deneyler</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Deney ID</th>
+            <th>Deney Adı</th>
+            <th>Deney Tür</th>
+            <th>Deney Yapan Personel</th>
+
+            <th>Numune Ad Soyad</th>
+            <th>Deney Yapılma Tarihi</th>
+
+
+        </tr>
+
+
+
+        @foreach (var deney in Model)
+        {
+
+
+            <tr class="w3-hover-blue">
+                <td>@deney.DeneyID</td>
+                <td>@deney.DeneyAdi</td>
+                <td>@deney.DeneyTurTBL.DeneyTur</td>
+                <td>@deney.PersonellerTBL.PersonelAd &nbsp @deney.PersonellerTBL.PersonelSoyad</td>
+
+
+                <td>@deney.NumunelerTBL.NumuneAd &nbsp @deney.NumunelerTBL.NumuneSoyad</td>
+
+
+                <td>@Convert.ToDateTime(deney.DeneyTarih).ToString("dd/MM/yyyy")</td>
+
+
+
+            </tr>
+
+        }
+
+    </table>
+    <div >
+        <a href="/Deney/DeneyEkle" class="btn btn-primary">Deney Ekle</a>
+        <a href="/Deney/ListeYazdır" style="margin-left:50px" class="btn btn-danger">Liste Yazdır</a>
+    </div>
+   
+
+</body>
+
+</html>
+

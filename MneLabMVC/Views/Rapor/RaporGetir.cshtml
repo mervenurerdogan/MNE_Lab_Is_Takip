@@ -1,0 +1,94 @@
+﻿@model MneLabMVC.Models.Entitys.RaporlarTBL
+@{
+    ViewBag.Title = "RaporGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+
+
+<title>RaporEkle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<body>
+    <br />
+    <br />
+    <br />
+
+    @using (Html.BeginForm("RaporOnayla", "Rapor", FormMethod.Post))
+    {
+
+
+
+        
+            <h2 class="w3-center">Rapor Onay</h2>
+
+            @*<div class="w3-row w3-section">
+
+                <div class="w3-rest">
+                 @Html.DropDownListFor(x=>x.RaporTurTBL.RaporTurID,(List<SelectListItem>)ViewBag.turdgr,"Rapor Türü", new { @class = "form-control" })
+                </div>
+            </div>*@
+
+            <div class="w3-row w3-section">
+
+                <div class="w3-rest">
+                   @Html.TextBoxFor(x=>x.RaporNo, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="w3-row w3-section">
+
+                <div class="w3-rest">
+                   @Html.TextBoxFor(x=>x.RaporDuzenTarih, "{0:MM/dd/yyyy}", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="w3-row w3-section">
+
+                <div class="w3-rest">
+
+                    @Html.DropDownListFor(x => x.LaboratuvarlarTBL.LabID, (List<SelectListItem>)ViewBag.labdgr, "Laboratuvar Seçiniz", new { @class = "form-control" })
+                </div>
+            </div>
+
+
+            <div class="w3-row w3-section">
+
+                <div class="w3-rest">
+                    @Html.DropDownListFor(x => x.PersonellerTBL.PersonelID, (List<SelectListItem>)ViewBag.persdgr, "Rapor Veren  Personel", new { @class = "form-control" })
+
+                </div>
+            </div>
+
+
+            <div class="w3-row w3-section">
+
+                <div class="w3-rest">
+                    @Html.DropDownListFor(x => x.NumunelerTBL.NumuneID, (List<SelectListItem>)ViewBag.numdgr, "Rapor Sahibi ", new { @class = "form-control" })
+                </div>
+            </div>
+
+
+
+
+
+            <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Raporu Onayla</button>
+
+      
+    }
+    @Html.HiddenFor(n=>n.RaporID)
+    <input type="hidden" name="RaporDurum" value="True" />
+
+</body>
+</html>
+
+
+
+
+

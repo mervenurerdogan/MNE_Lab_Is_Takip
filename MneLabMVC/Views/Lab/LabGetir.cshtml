@@ -1,0 +1,65 @@
+﻿@model MneLabMVC.Models.Entitys.LaboratuvarlarTBL
+@{
+    ViewBag.Title = "LabGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Laboratuvar Güncelle</h2>
+
+<html>
+<head>
+    <title>LabGuncelle</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+
+<body>
+    @using (Html.BeginForm("LabGuncelle", "Lab", FormMethod.Post))
+    {
+        @Html.HiddenFor(n => n.LabID)
+
+        <form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" method="post">
+
+            <br />
+            <div class="w3-row w3-section">
+                <label style="font-size:large">Laboratuvar Kodu</label>
+                <div class="w3-rest">
+                    @Html.TextBoxFor(x => x.LabKodu, new { @class = "form-control" })
+
+                </div>
+            </div>
+            <br />
+
+            <div class="w3-row w3-section">
+                <label style="font-size:large">Laboratuvar Tur Kodu</label>
+                <div class="w3-rest">
+                    @Html.DropDownListFor(x => x.LabTurTBL.LabTurID, (List<SelectListItem>)ViewBag.tudgr, new { @class = "form-control" })
+                </div>
+            </div>
+            <br />
+
+
+
+        </form>
+
+
+        <br />
+
+        <div>
+            <button class="btn btn-warning">Güncelle</button>
+
+        </div>
+
+
+
+
+    }
+
+</body>
+
+</html>

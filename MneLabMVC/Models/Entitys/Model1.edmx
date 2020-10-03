@@ -1,0 +1,1847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LaboratuvarDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DeneylerTBL">
+          <Key>
+            <PropertyRef Name="DeneyID" />
+          </Key>
+          <Property Name="DeneyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeneyAdi" Type="varchar" MaxLength="100" />
+          <Property Name="DeneyTurID" Type="tinyint" />
+          <Property Name="DeneyYapanPersonelID1" Type="int" />
+          <Property Name="NumuneID" Type="int" />
+          <Property Name="NumuneTurID" Type="tinyint" />
+          <Property Name="DeneyUcret" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DeneyTarih" Type="smalldatetime" />
+          <Property Name="DeneyDurum" Type="bit" />
+          <Property Name="KullanılanMalzID2" Type="int" />
+          <Property Name="RaporTurID" Type="int" />
+          <Property Name="FaturaTurID" Type="int" />
+        </EntityType>
+        <EntityType Name="DeneyOnayTBL">
+          <Key>
+            <PropertyRef Name="DeneyOnayID" />
+          </Key>
+          <Property Name="DeneyOnayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeneyID" Type="int" />
+          <Property Name="DeneyOnayTarih" Type="smalldatetime" />
+          <Property Name="DeneyOnayDurumu" Type="bit" />
+        </EntityType>
+        <EntityType Name="DeneyPersonelIslemTBL">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="DeneyID" Type="int" />
+        </EntityType>
+        <EntityType Name="DeneyTurTBL">
+          <Key>
+            <PropertyRef Name="DeneyTurID" />
+          </Key>
+          <Property Name="DeneyTurID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeneyTur" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="DuyurularTBL">
+          <Key>
+            <PropertyRef Name="DuyuruID" />
+          </Key>
+          <Property Name="DuyuruID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DuyuruBaşlık" Type="varchar" MaxLength="100" />
+          <Property Name="Duyruİçerik" Type="varchar(max)" />
+          <Property Name="Tarih" Type="smalldatetime" />
+          <Property Name="DuyuruDurum" Type="bit" />
+          <Property Name="DuyuruEkleyenPersonelID" Type="int" />
+        </EntityType>
+        <EntityType Name="FaturalarTBL">
+          <Key>
+            <PropertyRef Name="FaturaID" />
+          </Key>
+          <Property Name="FaturaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FaturaNo" Type="varchar" MaxLength="50" />
+          <Property Name="FaturaTarih" Type="smalldatetime" />
+          <Property Name="LabID" Type="int" />
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="NumuneID" Type="int" />
+          <Property Name="FaturaDurumu" Type="bit" />
+          <Property Name="FaturaTutar" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FaturaTurID" Type="int" />
+        </EntityType>
+        <EntityType Name="FaturaTurTBL">
+          <Key>
+            <PropertyRef Name="FaturaTurID" />
+          </Key>
+          <Property Name="FaturaTurID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FaturaTur" Type="varchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="IzınTBL">
+          <Key>
+            <PropertyRef Name="IzinID" />
+          </Key>
+          <Property Name="IzinID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IzinAlanPersonelID" Type="int" />
+          <Property Name="IzınAlanPersonelGoreviID" Type="tinyint" />
+          <Property Name="PersonelIzinDurumu" Type="bit" />
+          <Property Name="IzinBaslangicTarih" Type="smalldatetime" />
+          <Property Name="IzınBitisTarih" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="LaboratuvarlarTBL">
+          <Key>
+            <PropertyRef Name="LabID" />
+          </Key>
+          <Property Name="LabID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LabKodu" Type="varchar" MaxLength="50" />
+          <Property Name="LabTurID" Type="tinyint" />
+          <Property Name="LabDurum" Type="bit" />
+        </EntityType>
+        <EntityType Name="LabTurTBL">
+          <Key>
+            <PropertyRef Name="LabTurID" />
+          </Key>
+          <Property Name="LabTurID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LabTur" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MalzemelerTBL">
+          <Key>
+            <PropertyRef Name="MalzemeID" />
+          </Key>
+          <Property Name="MalzemeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Malzeme" Type="varchar" MaxLength="100" />
+          <Property Name="MalzemeDetay" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="MesajlarTBL">
+          <Key>
+            <PropertyRef Name="MesajlarID" />
+          </Key>
+          <Property Name="MesajlarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gonderen" Type="varchar" MaxLength="50" />
+          <Property Name="Alıcı" Type="varchar" MaxLength="50" />
+          <Property Name="Mesaj" Type="varchar" MaxLength="540" />
+          <Property Name="Tarih" Type="smalldatetime" />
+          <Property Name="Konu" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="NumunelerTBL">
+          <Key>
+            <PropertyRef Name="NumuneID" />
+          </Key>
+          <Property Name="NumuneID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumuneAd" Type="varchar" MaxLength="50" />
+          <Property Name="NumuneSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="NumuneTürID" Type="tinyint" />
+          <Property Name="NumuneAlanPersonelID" Type="int" />
+          <Property Name="LabID" Type="int" />
+          <Property Name="LabTurID" Type="tinyint" />
+          <Property Name="NumuneAlinisTarih" Type="smalldatetime" />
+          <Property Name="NumuneMiktar" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NumuneAdet" Type="int" />
+          <Property Name="Mail" Type="varchar" MaxLength="150" />
+          <Property Name="NumSifre1" Type="varchar" MaxLength="50" />
+          <Property Name="NumSifre2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NumuneTurTBL">
+          <Key>
+            <PropertyRef Name="NumuneTurID" />
+          </Key>
+          <Property Name="NumuneTurID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumuneTur" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OdenenFaturaTBL">
+          <Key>
+            <PropertyRef Name="ÖdenenFaturaID" />
+          </Key>
+          <Property Name="ÖdenenFaturaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FaturaID" Type="int" />
+          <Property Name="OdenmeTarih" Type="smalldatetime" />
+          <Property Name="FaturaOdenmeDurum" Type="bit" />
+          <Property Name="IslemYapanPersonel" Type="int" />
+        </EntityType>
+        <EntityType Name="OnaylananRaporTBL">
+          <Key>
+            <PropertyRef Name="OnayRaporID" />
+          </Key>
+          <Property Name="OnayRaporID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RaporID" Type="int" />
+          <Property Name="OnayRaporDurum" Type="bit" />
+          <Property Name="OnayTarihi" Type="smalldatetime" />
+          <Property Name="OnaylayanPersonelID" Type="int" />
+        </EntityType>
+        <EntityType Name="PersonellerTBL">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelAd" Type="varchar" MaxLength="50" />
+          <Property Name="PersonelSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" />
+          <Property Name="KullanıcıAdi" Type="varchar" MaxLength="30" />
+          <Property Name="Sifre1" Type="varchar" MaxLength="20" />
+          <Property Name="Sifre2" Type="varchar" MaxLength="20" />
+          <Property Name="PersonelTurID" Type="tinyint" />
+          <Property Name="LabID" Type="int" />
+          <Property Name="PersonelDurum" Type="bit" />
+          <Property Name="PersonelSilmeDurum" Type="bit" />
+        </EntityType>
+        <EntityType Name="PersonelTurTBL">
+          <Key>
+            <PropertyRef Name="PersonelTurID" />
+          </Key>
+          <Property Name="PersonelTurID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelTur" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RaporlarTBL">
+          <Key>
+            <PropertyRef Name="RaporID" />
+          </Key>
+          <Property Name="RaporID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LabID" Type="int" />
+          <Property Name="NumuneID" Type="int" />
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="RaporNo" Type="varchar" MaxLength="50" />
+          <Property Name="RaporDurum" Type="bit" />
+          <Property Name="RaporDuzenTarih" Type="smalldatetime" />
+          <Property Name="RaporTurID" Type="int" />
+        </EntityType>
+        <EntityType Name="RaporTurTBL">
+          <Key>
+            <PropertyRef Name="RaporTurID" />
+          </Key>
+          <Property Name="RaporTurID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RaporTur" Type="varchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_DeneylerTBL_DeneyTurTBL">
+          <End Role="DeneyTurTBL" Type="Self.DeneyTurTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeneyTurTBL">
+              <PropertyRef Name="DeneyTurID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="DeneyTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_FaturaTurTBL">
+          <End Role="FaturaTurTBL" Type="Self.FaturaTurTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FaturaTurTBL">
+              <PropertyRef Name="FaturaTurID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="FaturaTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_MalzemelerTBL4">
+          <End Role="MalzemelerTBL" Type="Self.MalzemelerTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MalzemelerTBL">
+              <PropertyRef Name="MalzemeID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="KullanılanMalzID2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_NumunelerTBL">
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumunelerTBL">
+              <PropertyRef Name="NumuneID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="NumuneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_NumuneTurTBL">
+          <End Role="NumuneTurTBL" Type="Self.NumuneTurTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumuneTurTBL">
+              <PropertyRef Name="NumuneTurID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="NumuneTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="DeneyYapanPersonelID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_RaporTurTBL">
+          <End Role="RaporTurTBL" Type="Self.RaporTurTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaporTurTBL">
+              <PropertyRef Name="RaporTurID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="RaporTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneyOnayTBL_DeneylerTBL">
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="0..1" />
+          <End Role="DeneyOnayTBL" Type="Self.DeneyOnayTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeneylerTBL">
+              <PropertyRef Name="DeneyID" />
+            </Principal>
+            <Dependent Role="DeneyOnayTBL">
+              <PropertyRef Name="DeneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneyPersonelIslemTBL_DeneylerTBL">
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="0..1" />
+          <End Role="DeneyPersonelIslemTBL" Type="Self.DeneyPersonelIslemTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeneylerTBL">
+              <PropertyRef Name="DeneyID" />
+            </Principal>
+            <Dependent Role="DeneyPersonelIslemTBL">
+              <PropertyRef Name="DeneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneyPersonelIslemTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="DeneyPersonelIslemTBL" Type="Self.DeneyPersonelIslemTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="DeneyPersonelIslemTBL">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DuyurularTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="DuyurularTBL" Type="Self.DuyurularTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="DuyurularTBL">
+              <PropertyRef Name="DuyuruEkleyenPersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaturalarTBL_FaturaTurTBL">
+          <End Role="FaturaTurTBL" Type="Self.FaturaTurTBL" Multiplicity="0..1" />
+          <End Role="FaturalarTBL" Type="Self.FaturalarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FaturaTurTBL">
+              <PropertyRef Name="FaturaTurID" />
+            </Principal>
+            <Dependent Role="FaturalarTBL">
+              <PropertyRef Name="FaturaTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaturalarTBL_LaboratuvarlarTBL">
+          <End Role="LaboratuvarlarTBL" Type="Self.LaboratuvarlarTBL" Multiplicity="0..1" />
+          <End Role="FaturalarTBL" Type="Self.FaturalarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LaboratuvarlarTBL">
+              <PropertyRef Name="LabID" />
+            </Principal>
+            <Dependent Role="FaturalarTBL">
+              <PropertyRef Name="LabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaturalarTBL_NumunelerTBL">
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="0..1" />
+          <End Role="FaturalarTBL" Type="Self.FaturalarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumunelerTBL">
+              <PropertyRef Name="NumuneID" />
+            </Principal>
+            <Dependent Role="FaturalarTBL">
+              <PropertyRef Name="NumuneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaturalarTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="FaturalarTBL" Type="Self.FaturalarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="FaturalarTBL">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IzınTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="IzınTBL" Type="Self.IzınTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="IzınTBL">
+              <PropertyRef Name="IzinAlanPersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IzınTBL_PersonelTurTBL">
+          <End Role="PersonelTurTBL" Type="Self.PersonelTurTBL" Multiplicity="0..1" />
+          <End Role="IzınTBL" Type="Self.IzınTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonelTurTBL">
+              <PropertyRef Name="PersonelTurID" />
+            </Principal>
+            <Dependent Role="IzınTBL">
+              <PropertyRef Name="IzınAlanPersonelGoreviID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LaboratuvarlarTBL_LabTurTBL">
+          <End Role="LabTurTBL" Type="Self.LabTurTBL" Multiplicity="0..1" />
+          <End Role="LaboratuvarlarTBL" Type="Self.LaboratuvarlarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LabTurTBL">
+              <PropertyRef Name="LabTurID" />
+            </Principal>
+            <Dependent Role="LaboratuvarlarTBL">
+              <PropertyRef Name="LabTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NumunelerTBL_LaboratuvarlarTBL">
+          <End Role="LaboratuvarlarTBL" Type="Self.LaboratuvarlarTBL" Multiplicity="0..1" />
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LaboratuvarlarTBL">
+              <PropertyRef Name="LabID" />
+            </Principal>
+            <Dependent Role="NumunelerTBL">
+              <PropertyRef Name="LabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NumunelerTBL_LabTurTBL">
+          <End Role="LabTurTBL" Type="Self.LabTurTBL" Multiplicity="0..1" />
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LabTurTBL">
+              <PropertyRef Name="LabTurID" />
+            </Principal>
+            <Dependent Role="NumunelerTBL">
+              <PropertyRef Name="LabTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NumunelerTBL_NumuneTurTBL">
+          <End Role="NumuneTurTBL" Type="Self.NumuneTurTBL" Multiplicity="0..1" />
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumuneTurTBL">
+              <PropertyRef Name="NumuneTurID" />
+            </Principal>
+            <Dependent Role="NumunelerTBL">
+              <PropertyRef Name="NumuneTürID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NumunelerTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="NumunelerTBL">
+              <PropertyRef Name="NumuneAlanPersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OdenenFaturaTBL_FaturalarTBL">
+          <End Role="FaturalarTBL" Type="Self.FaturalarTBL" Multiplicity="0..1" />
+          <End Role="OdenenFaturaTBL" Type="Self.OdenenFaturaTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FaturalarTBL">
+              <PropertyRef Name="FaturaID" />
+            </Principal>
+            <Dependent Role="OdenenFaturaTBL">
+              <PropertyRef Name="FaturaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OdenenFaturaTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="OdenenFaturaTBL" Type="Self.OdenenFaturaTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="OdenenFaturaTBL">
+              <PropertyRef Name="IslemYapanPersonel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OnaylananRaporTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="OnaylananRaporTBL" Type="Self.OnaylananRaporTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="OnaylananRaporTBL">
+              <PropertyRef Name="OnaylayanPersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OnaylananRaporTBL_RaporlarTBL">
+          <End Role="RaporlarTBL" Type="Self.RaporlarTBL" Multiplicity="0..1" />
+          <End Role="OnaylananRaporTBL" Type="Self.OnaylananRaporTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaporlarTBL">
+              <PropertyRef Name="RaporID" />
+            </Principal>
+            <Dependent Role="OnaylananRaporTBL">
+              <PropertyRef Name="RaporID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonellerTBL_LaboratuvarlarTBL">
+          <End Role="LaboratuvarlarTBL" Type="Self.LaboratuvarlarTBL" Multiplicity="0..1" />
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LaboratuvarlarTBL">
+              <PropertyRef Name="LabID" />
+            </Principal>
+            <Dependent Role="PersonellerTBL">
+              <PropertyRef Name="LabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonellerTBL_PersonelTurTBL">
+          <End Role="PersonelTurTBL" Type="Self.PersonelTurTBL" Multiplicity="0..1" />
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonelTurTBL">
+              <PropertyRef Name="PersonelTurID" />
+            </Principal>
+            <Dependent Role="PersonellerTBL">
+              <PropertyRef Name="PersonelTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RaporlarTBL_LaboratuvarlarTBL">
+          <End Role="LaboratuvarlarTBL" Type="Self.LaboratuvarlarTBL" Multiplicity="0..1" />
+          <End Role="RaporlarTBL" Type="Self.RaporlarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LaboratuvarlarTBL">
+              <PropertyRef Name="LabID" />
+            </Principal>
+            <Dependent Role="RaporlarTBL">
+              <PropertyRef Name="LabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RaporlarTBL_NumunelerTBL">
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="0..1" />
+          <End Role="RaporlarTBL" Type="Self.RaporlarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumunelerTBL">
+              <PropertyRef Name="NumuneID" />
+            </Principal>
+            <Dependent Role="RaporlarTBL">
+              <PropertyRef Name="NumuneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RaporlarTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="RaporlarTBL" Type="Self.RaporlarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="RaporlarTBL">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RaporlarTBL_RaporTurTBL">
+          <End Role="RaporTurTBL" Type="Self.RaporTurTBL" Multiplicity="0..1" />
+          <End Role="RaporlarTBL" Type="Self.RaporlarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaporTurTBL">
+              <PropertyRef Name="RaporTurID" />
+            </Principal>
+            <Dependent Role="RaporlarTBL">
+              <PropertyRef Name="RaporTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LaboratuvarDBModelStoreContainer">
+          <EntitySet Name="DeneylerTBL" EntityType="Self.DeneylerTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeneyOnayTBL" EntityType="Self.DeneyOnayTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeneyPersonelIslemTBL" EntityType="Self.DeneyPersonelIslemTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeneyTurTBL" EntityType="Self.DeneyTurTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DuyurularTBL" EntityType="Self.DuyurularTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FaturalarTBL" EntityType="Self.FaturalarTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FaturaTurTBL" EntityType="Self.FaturaTurTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IzınTBL" EntityType="Self.IzınTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LaboratuvarlarTBL" EntityType="Self.LaboratuvarlarTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LabTurTBL" EntityType="Self.LabTurTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MalzemelerTBL" EntityType="Self.MalzemelerTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MesajlarTBL" EntityType="Self.MesajlarTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NumunelerTBL" EntityType="Self.NumunelerTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NumuneTurTBL" EntityType="Self.NumuneTurTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OdenenFaturaTBL" EntityType="Self.OdenenFaturaTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OnaylananRaporTBL" EntityType="Self.OnaylananRaporTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonellerTBL" EntityType="Self.PersonellerTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelTurTBL" EntityType="Self.PersonelTurTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RaporlarTBL" EntityType="Self.RaporlarTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RaporTurTBL" EntityType="Self.RaporTurTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DeneylerTBL_DeneyTurTBL" Association="Self.FK_DeneylerTBL_DeneyTurTBL">
+            <End Role="DeneyTurTBL" EntitySet="DeneyTurTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_FaturaTurTBL" Association="Self.FK_DeneylerTBL_FaturaTurTBL">
+            <End Role="FaturaTurTBL" EntitySet="FaturaTurTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_MalzemelerTBL4" Association="Self.FK_DeneylerTBL_MalzemelerTBL4">
+            <End Role="MalzemelerTBL" EntitySet="MalzemelerTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_NumunelerTBL" Association="Self.FK_DeneylerTBL_NumunelerTBL">
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_NumuneTurTBL" Association="Self.FK_DeneylerTBL_NumuneTurTBL">
+            <End Role="NumuneTurTBL" EntitySet="NumuneTurTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_PersonellerTBL" Association="Self.FK_DeneylerTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_RaporTurTBL" Association="Self.FK_DeneylerTBL_RaporTurTBL">
+            <End Role="RaporTurTBL" EntitySet="RaporTurTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneyOnayTBL_DeneylerTBL" Association="Self.FK_DeneyOnayTBL_DeneylerTBL">
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+            <End Role="DeneyOnayTBL" EntitySet="DeneyOnayTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneyPersonelIslemTBL_DeneylerTBL" Association="Self.FK_DeneyPersonelIslemTBL_DeneylerTBL">
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+            <End Role="DeneyPersonelIslemTBL" EntitySet="DeneyPersonelIslemTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneyPersonelIslemTBL_PersonellerTBL" Association="Self.FK_DeneyPersonelIslemTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="DeneyPersonelIslemTBL" EntitySet="DeneyPersonelIslemTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DuyurularTBL_PersonellerTBL" Association="Self.FK_DuyurularTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="DuyurularTBL" EntitySet="DuyurularTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FaturalarTBL_FaturaTurTBL" Association="Self.FK_FaturalarTBL_FaturaTurTBL">
+            <End Role="FaturaTurTBL" EntitySet="FaturaTurTBL" />
+            <End Role="FaturalarTBL" EntitySet="FaturalarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FaturalarTBL_LaboratuvarlarTBL" Association="Self.FK_FaturalarTBL_LaboratuvarlarTBL">
+            <End Role="LaboratuvarlarTBL" EntitySet="LaboratuvarlarTBL" />
+            <End Role="FaturalarTBL" EntitySet="FaturalarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FaturalarTBL_NumunelerTBL" Association="Self.FK_FaturalarTBL_NumunelerTBL">
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+            <End Role="FaturalarTBL" EntitySet="FaturalarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FaturalarTBL_PersonellerTBL" Association="Self.FK_FaturalarTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="FaturalarTBL" EntitySet="FaturalarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IzınTBL_PersonellerTBL" Association="Self.FK_IzınTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="IzınTBL" EntitySet="IzınTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IzınTBL_PersonelTurTBL" Association="Self.FK_IzınTBL_PersonelTurTBL">
+            <End Role="PersonelTurTBL" EntitySet="PersonelTurTBL" />
+            <End Role="IzınTBL" EntitySet="IzınTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LaboratuvarlarTBL_LabTurTBL" Association="Self.FK_LaboratuvarlarTBL_LabTurTBL">
+            <End Role="LabTurTBL" EntitySet="LabTurTBL" />
+            <End Role="LaboratuvarlarTBL" EntitySet="LaboratuvarlarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NumunelerTBL_LaboratuvarlarTBL" Association="Self.FK_NumunelerTBL_LaboratuvarlarTBL">
+            <End Role="LaboratuvarlarTBL" EntitySet="LaboratuvarlarTBL" />
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NumunelerTBL_LabTurTBL" Association="Self.FK_NumunelerTBL_LabTurTBL">
+            <End Role="LabTurTBL" EntitySet="LabTurTBL" />
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NumunelerTBL_NumuneTurTBL" Association="Self.FK_NumunelerTBL_NumuneTurTBL">
+            <End Role="NumuneTurTBL" EntitySet="NumuneTurTBL" />
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NumunelerTBL_PersonellerTBL" Association="Self.FK_NumunelerTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OdenenFaturaTBL_FaturalarTBL" Association="Self.FK_OdenenFaturaTBL_FaturalarTBL">
+            <End Role="FaturalarTBL" EntitySet="FaturalarTBL" />
+            <End Role="OdenenFaturaTBL" EntitySet="OdenenFaturaTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OdenenFaturaTBL_PersonellerTBL" Association="Self.FK_OdenenFaturaTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="OdenenFaturaTBL" EntitySet="OdenenFaturaTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OnaylananRaporTBL_PersonellerTBL" Association="Self.FK_OnaylananRaporTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="OnaylananRaporTBL" EntitySet="OnaylananRaporTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OnaylananRaporTBL_RaporlarTBL" Association="Self.FK_OnaylananRaporTBL_RaporlarTBL">
+            <End Role="RaporlarTBL" EntitySet="RaporlarTBL" />
+            <End Role="OnaylananRaporTBL" EntitySet="OnaylananRaporTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonellerTBL_LaboratuvarlarTBL" Association="Self.FK_PersonellerTBL_LaboratuvarlarTBL">
+            <End Role="LaboratuvarlarTBL" EntitySet="LaboratuvarlarTBL" />
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonellerTBL_PersonelTurTBL" Association="Self.FK_PersonellerTBL_PersonelTurTBL">
+            <End Role="PersonelTurTBL" EntitySet="PersonelTurTBL" />
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RaporlarTBL_LaboratuvarlarTBL" Association="Self.FK_RaporlarTBL_LaboratuvarlarTBL">
+            <End Role="LaboratuvarlarTBL" EntitySet="LaboratuvarlarTBL" />
+            <End Role="RaporlarTBL" EntitySet="RaporlarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RaporlarTBL_NumunelerTBL" Association="Self.FK_RaporlarTBL_NumunelerTBL">
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+            <End Role="RaporlarTBL" EntitySet="RaporlarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RaporlarTBL_PersonellerTBL" Association="Self.FK_RaporlarTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="RaporlarTBL" EntitySet="RaporlarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RaporlarTBL_RaporTurTBL" Association="Self.FK_RaporlarTBL_RaporTurTBL">
+            <End Role="RaporTurTBL" EntitySet="RaporTurTBL" />
+            <End Role="RaporlarTBL" EntitySet="RaporlarTBL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LaboratuvarDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DeneylerTBL">
+          <Key>
+            <PropertyRef Name="DeneyID" />
+          </Key>
+          <Property Name="DeneyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeneyAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DeneyTurID" Type="Byte" />
+          <Property Name="DeneyYapanPersonelID1" Type="Int32" />
+          <Property Name="NumuneID" Type="Int32" />
+          <Property Name="NumuneTurID" Type="Byte" />
+          <Property Name="DeneyUcret" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DeneyTarih" Type="DateTime" Precision="0" />
+          <Property Name="DeneyDurum" Type="Boolean" />
+          <Property Name="KullanılanMalzID2" Type="Int32" />
+          <Property Name="RaporTurID" Type="Int32" />
+          <Property Name="FaturaTurID" Type="Int32" />
+          <NavigationProperty Name="DeneyTurTBL" Relationship="Self.FK_DeneylerTBL_DeneyTurTBL" FromRole="DeneylerTBL" ToRole="DeneyTurTBL" />
+          <NavigationProperty Name="FaturaTurTBL" Relationship="Self.FK_DeneylerTBL_FaturaTurTBL" FromRole="DeneylerTBL" ToRole="FaturaTurTBL" />
+          <NavigationProperty Name="MalzemelerTBL" Relationship="Self.FK_DeneylerTBL_MalzemelerTBL4" FromRole="DeneylerTBL" ToRole="MalzemelerTBL" />
+          <NavigationProperty Name="NumunelerTBL" Relationship="Self.FK_DeneylerTBL_NumunelerTBL" FromRole="DeneylerTBL" ToRole="NumunelerTBL" />
+          <NavigationProperty Name="NumuneTurTBL" Relationship="Self.FK_DeneylerTBL_NumuneTurTBL" FromRole="DeneylerTBL" ToRole="NumuneTurTBL" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="Self.FK_DeneylerTBL_PersonellerTBL" FromRole="DeneylerTBL" ToRole="PersonellerTBL" />
+          <NavigationProperty Name="RaporTurTBL" Relationship="Self.FK_DeneylerTBL_RaporTurTBL" FromRole="DeneylerTBL" ToRole="RaporTurTBL" />
+          <NavigationProperty Name="DeneyOnayTBL" Relationship="Self.FK_DeneyOnayTBL_DeneylerTBL" FromRole="DeneylerTBL" ToRole="DeneyOnayTBL" />
+          <NavigationProperty Name="DeneyPersonelIslemTBL" Relationship="Self.FK_DeneyPersonelIslemTBL_DeneylerTBL" FromRole="DeneylerTBL" ToRole="DeneyPersonelIslemTBL" />
+        </EntityType>
+        <EntityType Name="DeneyOnayTBL">
+          <Key>
+            <PropertyRef Name="DeneyOnayID" />
+          </Key>
+          <Property Name="DeneyOnayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeneyID" Type="Int32" />
+          <Property Name="DeneyOnayTarih" Type="DateTime" Precision="0" />
+          <Property Name="DeneyOnayDurumu" Type="Boolean" />
+          <NavigationProperty Name="DeneylerTBL" Relationship="Self.FK_DeneyOnayTBL_DeneylerTBL" FromRole="DeneyOnayTBL" ToRole="DeneylerTBL" />
+        </EntityType>
+        <EntityType Name="DeneyPersonelIslemTBL">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelID" Type="Int32" />
+          <Property Name="DeneyID" Type="Int32" />
+          <NavigationProperty Name="DeneylerTBL" Relationship="Self.FK_DeneyPersonelIslemTBL_DeneylerTBL" FromRole="DeneyPersonelIslemTBL" ToRole="DeneylerTBL" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="Self.FK_DeneyPersonelIslemTBL_PersonellerTBL" FromRole="DeneyPersonelIslemTBL" ToRole="PersonellerTBL" />
+        </EntityType>
+        <EntityType Name="DeneyTurTBL">
+          <Key>
+            <PropertyRef Name="DeneyTurID" />
+          </Key>
+          <Property Name="DeneyTurID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeneyTur" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DeneylerTBL" Relationship="Self.FK_DeneylerTBL_DeneyTurTBL" FromRole="DeneyTurTBL" ToRole="DeneylerTBL" />
+        </EntityType>
+        <EntityType Name="DuyurularTBL">
+          <Key>
+            <PropertyRef Name="DuyuruID" />
+          </Key>
+          <Property Name="DuyuruID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DuyuruBaşlık" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duyruİçerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <Property Name="DuyuruDurum" Type="Boolean" />
+          <Property Name="DuyuruEkleyenPersonelID" Type="Int32" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="Self.FK_DuyurularTBL_PersonellerTBL" FromRole="DuyurularTBL" ToRole="PersonellerTBL" />
+        </EntityType>
+        <EntityType Name="FaturalarTBL">
+          <Key>
+            <PropertyRef Name="FaturaID" />
+          </Key>
+          <Property Name="FaturaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FaturaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FaturaTarih" Type="DateTime" Precision="0" />
+          <Property Name="LabID" Type="Int32" />
+          <Property Name="PersonelID" Type="Int32" />
+          <Property Name="NumuneID" Type="Int32" />
+          <Property Name="FaturaDurumu" Type="Boolean" />
+          <Property Name="FaturaTutar" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FaturaTurID" Type="Int32" />
+          <NavigationProperty Name="FaturaTurTBL" Relationship="Self.FK_FaturalarTBL_FaturaTurTBL" FromRole="FaturalarTBL" ToRole="FaturaTurTBL" />
+          <NavigationProperty Name="LaboratuvarlarTBL" Relationship="Self.FK_FaturalarTBL_LaboratuvarlarTBL" FromRole="FaturalarTBL" ToRole="LaboratuvarlarTBL" />
+          <NavigationProperty Name="NumunelerTBL" Relationship="Self.FK_FaturalarTBL_NumunelerTBL" FromRole="FaturalarTBL" ToRole="NumunelerTBL" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="Self.FK_FaturalarTBL_PersonellerTBL" FromRole="FaturalarTBL" ToRole="PersonellerTBL" />
+          <NavigationProperty Name="OdenenFaturaTBL" Relationship="Self.FK_OdenenFaturaTBL_FaturalarTBL" FromRole="FaturalarTBL" ToRole="OdenenFaturaTBL" />
+        </EntityType>
+        <EntityType Name="FaturaTurTBL">
+          <Key>
+            <PropertyRef Name="FaturaTurID" />
+          </Key>
+          <Property Name="FaturaTurID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FaturaTur" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DeneylerTBL" Relationship="Self.FK_DeneylerTBL_FaturaTurTBL" FromRole="FaturaTurTBL" ToRole="DeneylerTBL" />
+          <NavigationProperty Name="FaturalarTBL" Relationship="Self.FK_FaturalarTBL_FaturaTurTBL" FromRole="FaturaTurTBL" ToRole="FaturalarTBL" />
+        </EntityType>
+        <EntityType Name="IzınTBL">
+          <Key>
+            <PropertyRef Name="IzinID" />
+          </Key>
+          <Property Name="IzinID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IzinAlanPersonelID" Type="Int32" />
+          <Property Name="IzınAlanPersonelGoreviID" Type="Byte" />
+          <Property Name="PersonelIzinDurumu" Type="Boolean" />
+          <Property Name="IzinBaslangicTarih" Type="DateTime" Precision="0" />
+          <Property Name="IzınBitisTarih" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="Self.FK_IzınTBL_PersonellerTBL" FromRole="IzınTBL" ToRole="PersonellerTBL" />
+          <NavigationProperty Name="PersonelTurTBL" Relationship="Self.FK_IzınTBL_PersonelTurTBL" FromRole="IzınTBL" ToRole="PersonelTurTBL" />
+        </EntityType>
+        <EntityType Name="LaboratuvarlarTBL">
+          <Key>
+            <PropertyRef Name="LabID" />
+          </Key>
+          <Property Name="LabID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LabKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LabTurID" Type="Byte" />
+          <Property Name="LabDurum" Type="Boolean" />
+          <NavigationProperty Name="FaturalarTBL" Relationship="Self.FK_FaturalarTBL_LaboratuvarlarTBL" FromRole="LaboratuvarlarTBL" ToRole="FaturalarTBL" />
+          <NavigationProperty Name="LabTurTBL" Relationship="Self.FK_LaboratuvarlarTBL_LabTurTBL" FromRole="LaboratuvarlarTBL" ToRole="LabTurTBL" />
+          <NavigationProperty Name="NumunelerTBL" Relationship="Self.FK_NumunelerTBL_LaboratuvarlarTBL" FromRole="LaboratuvarlarTBL" ToRole="NumunelerTBL" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="Self.FK_PersonellerTBL_LaboratuvarlarTBL" FromRole="LaboratuvarlarTBL" ToRole="PersonellerTBL" />
+          <NavigationProperty Name="RaporlarTBL" Relationship="Self.FK_RaporlarTBL_LaboratuvarlarTBL" FromRole="LaboratuvarlarTBL" ToRole="RaporlarTBL" />
+        </EntityType>
+        <EntityType Name="LabTurTBL">
+          <Key>
+            <PropertyRef Name="LabTurID" />
+          </Key>
+          <Property Name="LabTurID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LabTur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LaboratuvarlarTBL" Relationship="Self.FK_LaboratuvarlarTBL_LabTurTBL" FromRole="LabTurTBL" ToRole="LaboratuvarlarTBL" />
+          <NavigationProperty Name="NumunelerTBL" Relationship="Self.FK_NumunelerTBL_LabTurTBL" FromRole="LabTurTBL" ToRole="NumunelerTBL" />
+        </EntityType>
+        <EntityType Name="MalzemelerTBL">
+          <Key>
+            <PropertyRef Name="MalzemeID" />
+          </Key>
+          <Property Name="MalzemeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Malzeme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MalzemeDetay" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DeneylerTBL" Relationship="Self.FK_DeneylerTBL_MalzemelerTBL4" FromRole="MalzemelerTBL" ToRole="DeneylerTBL" />
+        </EntityType>
+        <EntityType Name="MesajlarTBL">
+          <Key>
+            <PropertyRef Name="MesajlarID" />
+          </Key>
+          <Property Name="MesajlarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gonderen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Alıcı" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mesaj" Type="String" MaxLength="540" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <Property Name="Konu" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NumunelerTBL">
+          <Key>
+            <PropertyRef Name="NumuneID" />
+          </Key>
+          <Property Name="NumuneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumuneAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumuneSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumuneTürID" Type="Byte" />
+          <Property Name="NumuneAlanPersonelID" Type="Int32" />
+          <Property Name="LabID" Type="Int32" />
+          <Property Name="LabTurID" Type="Byte" />
+          <Property Name="NumuneAlinisTarih" Type="DateTime" Precision="0" />
+          <Property Name="NumuneMiktar" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NumuneAdet" Type="Int32" />
+          <Property Name="Mail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="NumSifre1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumSifre2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DeneylerTBL" Relationship="Self.FK_DeneylerTBL_NumunelerTBL" FromRole="NumunelerTBL" ToRole="DeneylerTBL" />
+          <NavigationProperty Name="FaturalarTBL" Relationship="Self.FK_FaturalarTBL_NumunelerTBL" FromRole="NumunelerTBL" ToRole="FaturalarTBL" />
+          <NavigationProperty Name="LaboratuvarlarTBL" Relationship="Self.FK_NumunelerTBL_LaboratuvarlarTBL" FromRole="NumunelerTBL" ToRole="LaboratuvarlarTBL" />
+          <NavigationProperty Name="LabTurTBL" Relationship="Self.FK_NumunelerTBL_LabTurTBL" FromRole="NumunelerTBL" ToRole="LabTurTBL" />
+          <NavigationProperty Name="NumuneTurTBL" Relationship="Self.FK_NumunelerTBL_NumuneTurTBL" FromRole="NumunelerTBL" ToRole="NumuneTurTBL" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="Self.FK_NumunelerTBL_PersonellerTBL" FromRole="NumunelerTBL" ToRole="PersonellerTBL" />
+          <NavigationProperty Name="RaporlarTBL" Relationship="Self.FK_RaporlarTBL_NumunelerTBL" FromRole="NumunelerTBL" ToRole="RaporlarTBL" />
+        </EntityType>
+        <EntityType Name="NumuneTurTBL">
+          <Key>
+            <PropertyRef Name="NumuneTurID" />
+          </Key>
+          <Property Name="NumuneTurID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumuneTur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DeneylerTBL" Relationship="Self.FK_DeneylerTBL_NumuneTurTBL" FromRole="NumuneTurTBL" ToRole="DeneylerTBL" />
+          <NavigationProperty Name="NumunelerTBL" Relationship="Self.FK_NumunelerTBL_NumuneTurTBL" FromRole="NumuneTurTBL" ToRole="NumunelerTBL" />
+        </EntityType>
+        <EntityType Name="OdenenFaturaTBL">
+          <Key>
+            <PropertyRef Name="ÖdenenFaturaID" />
+          </Key>
+          <Property Name="ÖdenenFaturaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FaturaID" Type="Int32" />
+          <Property Name="OdenmeTarih" Type="DateTime" Precision="0" />
+          <Property Name="FaturaOdenmeDurum" Type="Boolean" />
+          <NavigationProperty Name="FaturalarTBL" Relationship="Self.FK_OdenenFaturaTBL_FaturalarTBL" FromRole="OdenenFaturaTBL" ToRole="FaturalarTBL" />
+          <Property Name="IslemYapanPersonel" Type="Int32" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="LaboratuvarDBModel.FK_OdenenFaturaTBL_PersonellerTBL" FromRole="OdenenFaturaTBL" ToRole="PersonellerTBL" />
+        </EntityType>
+        <EntityType Name="OnaylananRaporTBL">
+          <Key>
+            <PropertyRef Name="OnayRaporID" />
+          </Key>
+          <Property Name="OnayRaporID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RaporID" Type="Int32" />
+          <Property Name="OnayRaporDurum" Type="Boolean" />
+          <Property Name="OnayTarihi" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="RaporlarTBL" Relationship="Self.FK_OnaylananRaporTBL_RaporlarTBL" FromRole="OnaylananRaporTBL" ToRole="RaporlarTBL" />
+          <Property Name="OnaylayanPersonelID" Type="Int32" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="LaboratuvarDBModel.FK_OnaylananRaporTBL_PersonellerTBL" FromRole="OnaylananRaporTBL" ToRole="PersonellerTBL" />
+        </EntityType>
+        <EntityType Name="PersonellerTBL">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersonelSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KullanıcıAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PersonelTurID" Type="Byte" />
+          <Property Name="LabID" Type="Int32" />
+          <Property Name="PersonelDurum" Type="Boolean" />
+          <Property Name="PersonelSilmeDurum" Type="Boolean" />
+          <NavigationProperty Name="DeneylerTBL" Relationship="Self.FK_DeneylerTBL_PersonellerTBL" FromRole="PersonellerTBL" ToRole="DeneylerTBL" />
+          <NavigationProperty Name="DeneyPersonelIslemTBL" Relationship="Self.FK_DeneyPersonelIslemTBL_PersonellerTBL" FromRole="PersonellerTBL" ToRole="DeneyPersonelIslemTBL" />
+          <NavigationProperty Name="DuyurularTBL" Relationship="Self.FK_DuyurularTBL_PersonellerTBL" FromRole="PersonellerTBL" ToRole="DuyurularTBL" />
+          <NavigationProperty Name="FaturalarTBL" Relationship="Self.FK_FaturalarTBL_PersonellerTBL" FromRole="PersonellerTBL" ToRole="FaturalarTBL" />
+          <NavigationProperty Name="IzınTBL" Relationship="Self.FK_IzınTBL_PersonellerTBL" FromRole="PersonellerTBL" ToRole="IzınTBL" />
+          <NavigationProperty Name="LaboratuvarlarTBL" Relationship="Self.FK_PersonellerTBL_LaboratuvarlarTBL" FromRole="PersonellerTBL" ToRole="LaboratuvarlarTBL" />
+          <NavigationProperty Name="NumunelerTBL" Relationship="Self.FK_NumunelerTBL_PersonellerTBL" FromRole="PersonellerTBL" ToRole="NumunelerTBL" />
+          <NavigationProperty Name="PersonelTurTBL" Relationship="Self.FK_PersonellerTBL_PersonelTurTBL" FromRole="PersonellerTBL" ToRole="PersonelTurTBL" />
+          <NavigationProperty Name="RaporlarTBL" Relationship="Self.FK_RaporlarTBL_PersonellerTBL" FromRole="PersonellerTBL" ToRole="RaporlarTBL" />
+          <NavigationProperty Name="OdenenFaturaTBL" Relationship="LaboratuvarDBModel.FK_OdenenFaturaTBL_PersonellerTBL" FromRole="PersonellerTBL" ToRole="OdenenFaturaTBL" />
+          <NavigationProperty Name="OnaylananRaporTBL" Relationship="LaboratuvarDBModel.FK_OnaylananRaporTBL_PersonellerTBL" FromRole="PersonellerTBL" ToRole="OnaylananRaporTBL" />
+        </EntityType>
+        <EntityType Name="PersonelTurTBL">
+          <Key>
+            <PropertyRef Name="PersonelTurID" />
+          </Key>
+          <Property Name="PersonelTurID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelTur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IzınTBL" Relationship="Self.FK_IzınTBL_PersonelTurTBL" FromRole="PersonelTurTBL" ToRole="IzınTBL" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="Self.FK_PersonellerTBL_PersonelTurTBL" FromRole="PersonelTurTBL" ToRole="PersonellerTBL" />
+        </EntityType>
+        <EntityType Name="RaporlarTBL">
+          <Key>
+            <PropertyRef Name="RaporID" />
+          </Key>
+          <Property Name="RaporID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LabID" Type="Int32" />
+          <Property Name="NumuneID" Type="Int32" />
+          <Property Name="PersonelID" Type="Int32" />
+          <Property Name="RaporNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RaporDurum" Type="Boolean" />
+          <Property Name="RaporDuzenTarih" Type="DateTime" Precision="0" />
+          <Property Name="RaporTurID" Type="Int32" />
+          <NavigationProperty Name="LaboratuvarlarTBL" Relationship="Self.FK_RaporlarTBL_LaboratuvarlarTBL" FromRole="RaporlarTBL" ToRole="LaboratuvarlarTBL" />
+          <NavigationProperty Name="NumunelerTBL" Relationship="Self.FK_RaporlarTBL_NumunelerTBL" FromRole="RaporlarTBL" ToRole="NumunelerTBL" />
+          <NavigationProperty Name="OnaylananRaporTBL" Relationship="Self.FK_OnaylananRaporTBL_RaporlarTBL" FromRole="RaporlarTBL" ToRole="OnaylananRaporTBL" />
+          <NavigationProperty Name="PersonellerTBL" Relationship="Self.FK_RaporlarTBL_PersonellerTBL" FromRole="RaporlarTBL" ToRole="PersonellerTBL" />
+          <NavigationProperty Name="RaporTurTBL" Relationship="Self.FK_RaporlarTBL_RaporTurTBL" FromRole="RaporlarTBL" ToRole="RaporTurTBL" />
+        </EntityType>
+        <EntityType Name="RaporTurTBL">
+          <Key>
+            <PropertyRef Name="RaporTurID" />
+          </Key>
+          <Property Name="RaporTurID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RaporTur" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DeneylerTBL" Relationship="Self.FK_DeneylerTBL_RaporTurTBL" FromRole="RaporTurTBL" ToRole="DeneylerTBL" />
+          <NavigationProperty Name="RaporlarTBL" Relationship="Self.FK_RaporlarTBL_RaporTurTBL" FromRole="RaporTurTBL" ToRole="RaporlarTBL" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_DeneylerTBL_DeneyTurTBL">
+          <End Role="DeneyTurTBL" Type="Self.DeneyTurTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeneyTurTBL">
+              <PropertyRef Name="DeneyTurID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="DeneyTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_FaturaTurTBL">
+          <End Role="FaturaTurTBL" Type="Self.FaturaTurTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FaturaTurTBL">
+              <PropertyRef Name="FaturaTurID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="FaturaTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_MalzemelerTBL4">
+          <End Role="MalzemelerTBL" Type="Self.MalzemelerTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MalzemelerTBL">
+              <PropertyRef Name="MalzemeID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="KullanılanMalzID2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_NumunelerTBL">
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumunelerTBL">
+              <PropertyRef Name="NumuneID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="NumuneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_NumuneTurTBL">
+          <End Role="NumuneTurTBL" Type="Self.NumuneTurTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumuneTurTBL">
+              <PropertyRef Name="NumuneTurID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="NumuneTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="DeneyYapanPersonelID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneylerTBL_RaporTurTBL">
+          <End Role="RaporTurTBL" Type="Self.RaporTurTBL" Multiplicity="0..1" />
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaporTurTBL">
+              <PropertyRef Name="RaporTurID" />
+            </Principal>
+            <Dependent Role="DeneylerTBL">
+              <PropertyRef Name="RaporTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneyOnayTBL_DeneylerTBL">
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="0..1" />
+          <End Role="DeneyOnayTBL" Type="Self.DeneyOnayTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeneylerTBL">
+              <PropertyRef Name="DeneyID" />
+            </Principal>
+            <Dependent Role="DeneyOnayTBL">
+              <PropertyRef Name="DeneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneyPersonelIslemTBL_DeneylerTBL">
+          <End Role="DeneylerTBL" Type="Self.DeneylerTBL" Multiplicity="0..1" />
+          <End Role="DeneyPersonelIslemTBL" Type="Self.DeneyPersonelIslemTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeneylerTBL">
+              <PropertyRef Name="DeneyID" />
+            </Principal>
+            <Dependent Role="DeneyPersonelIslemTBL">
+              <PropertyRef Name="DeneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeneyPersonelIslemTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="DeneyPersonelIslemTBL" Type="Self.DeneyPersonelIslemTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="DeneyPersonelIslemTBL">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DuyurularTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="DuyurularTBL" Type="Self.DuyurularTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="DuyurularTBL">
+              <PropertyRef Name="DuyuruEkleyenPersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaturalarTBL_FaturaTurTBL">
+          <End Role="FaturaTurTBL" Type="Self.FaturaTurTBL" Multiplicity="0..1" />
+          <End Role="FaturalarTBL" Type="Self.FaturalarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FaturaTurTBL">
+              <PropertyRef Name="FaturaTurID" />
+            </Principal>
+            <Dependent Role="FaturalarTBL">
+              <PropertyRef Name="FaturaTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaturalarTBL_LaboratuvarlarTBL">
+          <End Role="LaboratuvarlarTBL" Type="Self.LaboratuvarlarTBL" Multiplicity="0..1" />
+          <End Role="FaturalarTBL" Type="Self.FaturalarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LaboratuvarlarTBL">
+              <PropertyRef Name="LabID" />
+            </Principal>
+            <Dependent Role="FaturalarTBL">
+              <PropertyRef Name="LabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaturalarTBL_NumunelerTBL">
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="0..1" />
+          <End Role="FaturalarTBL" Type="Self.FaturalarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumunelerTBL">
+              <PropertyRef Name="NumuneID" />
+            </Principal>
+            <Dependent Role="FaturalarTBL">
+              <PropertyRef Name="NumuneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaturalarTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="FaturalarTBL" Type="Self.FaturalarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="FaturalarTBL">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OdenenFaturaTBL_FaturalarTBL">
+          <End Role="FaturalarTBL" Type="Self.FaturalarTBL" Multiplicity="0..1" />
+          <End Role="OdenenFaturaTBL" Type="Self.OdenenFaturaTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FaturalarTBL">
+              <PropertyRef Name="FaturaID" />
+            </Principal>
+            <Dependent Role="OdenenFaturaTBL">
+              <PropertyRef Name="FaturaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IzınTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="IzınTBL" Type="Self.IzınTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="IzınTBL">
+              <PropertyRef Name="IzinAlanPersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IzınTBL_PersonelTurTBL">
+          <End Role="PersonelTurTBL" Type="Self.PersonelTurTBL" Multiplicity="0..1" />
+          <End Role="IzınTBL" Type="Self.IzınTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonelTurTBL">
+              <PropertyRef Name="PersonelTurID" />
+            </Principal>
+            <Dependent Role="IzınTBL">
+              <PropertyRef Name="IzınAlanPersonelGoreviID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LaboratuvarlarTBL_LabTurTBL">
+          <End Role="LabTurTBL" Type="Self.LabTurTBL" Multiplicity="0..1" />
+          <End Role="LaboratuvarlarTBL" Type="Self.LaboratuvarlarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LabTurTBL">
+              <PropertyRef Name="LabTurID" />
+            </Principal>
+            <Dependent Role="LaboratuvarlarTBL">
+              <PropertyRef Name="LabTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NumunelerTBL_LaboratuvarlarTBL">
+          <End Role="LaboratuvarlarTBL" Type="Self.LaboratuvarlarTBL" Multiplicity="0..1" />
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LaboratuvarlarTBL">
+              <PropertyRef Name="LabID" />
+            </Principal>
+            <Dependent Role="NumunelerTBL">
+              <PropertyRef Name="LabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonellerTBL_LaboratuvarlarTBL">
+          <End Role="LaboratuvarlarTBL" Type="Self.LaboratuvarlarTBL" Multiplicity="0..1" />
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LaboratuvarlarTBL">
+              <PropertyRef Name="LabID" />
+            </Principal>
+            <Dependent Role="PersonellerTBL">
+              <PropertyRef Name="LabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RaporlarTBL_LaboratuvarlarTBL">
+          <End Role="LaboratuvarlarTBL" Type="Self.LaboratuvarlarTBL" Multiplicity="0..1" />
+          <End Role="RaporlarTBL" Type="Self.RaporlarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LaboratuvarlarTBL">
+              <PropertyRef Name="LabID" />
+            </Principal>
+            <Dependent Role="RaporlarTBL">
+              <PropertyRef Name="LabID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NumunelerTBL_LabTurTBL">
+          <End Role="LabTurTBL" Type="Self.LabTurTBL" Multiplicity="0..1" />
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LabTurTBL">
+              <PropertyRef Name="LabTurID" />
+            </Principal>
+            <Dependent Role="NumunelerTBL">
+              <PropertyRef Name="LabTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NumunelerTBL_NumuneTurTBL">
+          <End Role="NumuneTurTBL" Type="Self.NumuneTurTBL" Multiplicity="0..1" />
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumuneTurTBL">
+              <PropertyRef Name="NumuneTurID" />
+            </Principal>
+            <Dependent Role="NumunelerTBL">
+              <PropertyRef Name="NumuneTürID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NumunelerTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="NumunelerTBL">
+              <PropertyRef Name="NumuneAlanPersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RaporlarTBL_NumunelerTBL">
+          <End Role="NumunelerTBL" Type="Self.NumunelerTBL" Multiplicity="0..1" />
+          <End Role="RaporlarTBL" Type="Self.RaporlarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NumunelerTBL">
+              <PropertyRef Name="NumuneID" />
+            </Principal>
+            <Dependent Role="RaporlarTBL">
+              <PropertyRef Name="NumuneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OnaylananRaporTBL_RaporlarTBL">
+          <End Role="RaporlarTBL" Type="Self.RaporlarTBL" Multiplicity="0..1" />
+          <End Role="OnaylananRaporTBL" Type="Self.OnaylananRaporTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaporlarTBL">
+              <PropertyRef Name="RaporID" />
+            </Principal>
+            <Dependent Role="OnaylananRaporTBL">
+              <PropertyRef Name="RaporID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonellerTBL_PersonelTurTBL">
+          <End Role="PersonelTurTBL" Type="Self.PersonelTurTBL" Multiplicity="0..1" />
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonelTurTBL">
+              <PropertyRef Name="PersonelTurID" />
+            </Principal>
+            <Dependent Role="PersonellerTBL">
+              <PropertyRef Name="PersonelTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RaporlarTBL_PersonellerTBL">
+          <End Role="PersonellerTBL" Type="Self.PersonellerTBL" Multiplicity="0..1" />
+          <End Role="RaporlarTBL" Type="Self.RaporlarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="RaporlarTBL">
+              <PropertyRef Name="PersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RaporlarTBL_RaporTurTBL">
+          <End Role="RaporTurTBL" Type="Self.RaporTurTBL" Multiplicity="0..1" />
+          <End Role="RaporlarTBL" Type="Self.RaporlarTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RaporTurTBL">
+              <PropertyRef Name="RaporTurID" />
+            </Principal>
+            <Dependent Role="RaporlarTBL">
+              <PropertyRef Name="RaporTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LaboratuvarDBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DeneylerTBL" EntityType="Self.DeneylerTBL" />
+          <EntitySet Name="DeneyOnayTBL" EntityType="Self.DeneyOnayTBL" />
+          <EntitySet Name="DeneyPersonelIslemTBL" EntityType="Self.DeneyPersonelIslemTBL" />
+          <EntitySet Name="DeneyTurTBL" EntityType="Self.DeneyTurTBL" />
+          <EntitySet Name="DuyurularTBL" EntityType="Self.DuyurularTBL" />
+          <EntitySet Name="FaturalarTBL" EntityType="Self.FaturalarTBL" />
+          <EntitySet Name="FaturaTurTBL" EntityType="Self.FaturaTurTBL" />
+          <EntitySet Name="IzınTBL" EntityType="Self.IzınTBL" />
+          <EntitySet Name="LaboratuvarlarTBL" EntityType="Self.LaboratuvarlarTBL" />
+          <EntitySet Name="LabTurTBL" EntityType="Self.LabTurTBL" />
+          <EntitySet Name="MalzemelerTBL" EntityType="Self.MalzemelerTBL" />
+          <EntitySet Name="MesajlarTBL" EntityType="Self.MesajlarTBL" />
+          <EntitySet Name="NumunelerTBL" EntityType="Self.NumunelerTBL" />
+          <EntitySet Name="NumuneTurTBL" EntityType="Self.NumuneTurTBL" />
+          <EntitySet Name="OdenenFaturaTBL" EntityType="Self.OdenenFaturaTBL" />
+          <EntitySet Name="OnaylananRaporTBL" EntityType="Self.OnaylananRaporTBL" />
+          <EntitySet Name="PersonellerTBL" EntityType="Self.PersonellerTBL" />
+          <EntitySet Name="PersonelTurTBL" EntityType="Self.PersonelTurTBL" />
+          <EntitySet Name="RaporlarTBL" EntityType="Self.RaporlarTBL" />
+          <EntitySet Name="RaporTurTBL" EntityType="Self.RaporTurTBL" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_DeneylerTBL_DeneyTurTBL" Association="Self.FK_DeneylerTBL_DeneyTurTBL">
+            <End Role="DeneyTurTBL" EntitySet="DeneyTurTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_FaturaTurTBL" Association="Self.FK_DeneylerTBL_FaturaTurTBL">
+            <End Role="FaturaTurTBL" EntitySet="FaturaTurTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_MalzemelerTBL4" Association="Self.FK_DeneylerTBL_MalzemelerTBL4">
+            <End Role="MalzemelerTBL" EntitySet="MalzemelerTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_NumunelerTBL" Association="Self.FK_DeneylerTBL_NumunelerTBL">
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_NumuneTurTBL" Association="Self.FK_DeneylerTBL_NumuneTurTBL">
+            <End Role="NumuneTurTBL" EntitySet="NumuneTurTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_PersonellerTBL" Association="Self.FK_DeneylerTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneylerTBL_RaporTurTBL" Association="Self.FK_DeneylerTBL_RaporTurTBL">
+            <End Role="RaporTurTBL" EntitySet="RaporTurTBL" />
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneyOnayTBL_DeneylerTBL" Association="Self.FK_DeneyOnayTBL_DeneylerTBL">
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+            <End Role="DeneyOnayTBL" EntitySet="DeneyOnayTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneyPersonelIslemTBL_DeneylerTBL" Association="Self.FK_DeneyPersonelIslemTBL_DeneylerTBL">
+            <End Role="DeneylerTBL" EntitySet="DeneylerTBL" />
+            <End Role="DeneyPersonelIslemTBL" EntitySet="DeneyPersonelIslemTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeneyPersonelIslemTBL_PersonellerTBL" Association="Self.FK_DeneyPersonelIslemTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="DeneyPersonelIslemTBL" EntitySet="DeneyPersonelIslemTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DuyurularTBL_PersonellerTBL" Association="Self.FK_DuyurularTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="DuyurularTBL" EntitySet="DuyurularTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FaturalarTBL_FaturaTurTBL" Association="Self.FK_FaturalarTBL_FaturaTurTBL">
+            <End Role="FaturaTurTBL" EntitySet="FaturaTurTBL" />
+            <End Role="FaturalarTBL" EntitySet="FaturalarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FaturalarTBL_LaboratuvarlarTBL" Association="Self.FK_FaturalarTBL_LaboratuvarlarTBL">
+            <End Role="LaboratuvarlarTBL" EntitySet="LaboratuvarlarTBL" />
+            <End Role="FaturalarTBL" EntitySet="FaturalarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FaturalarTBL_NumunelerTBL" Association="Self.FK_FaturalarTBL_NumunelerTBL">
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+            <End Role="FaturalarTBL" EntitySet="FaturalarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FaturalarTBL_PersonellerTBL" Association="Self.FK_FaturalarTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="FaturalarTBL" EntitySet="FaturalarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OdenenFaturaTBL_FaturalarTBL" Association="Self.FK_OdenenFaturaTBL_FaturalarTBL">
+            <End Role="FaturalarTBL" EntitySet="FaturalarTBL" />
+            <End Role="OdenenFaturaTBL" EntitySet="OdenenFaturaTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IzınTBL_PersonellerTBL" Association="Self.FK_IzınTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="IzınTBL" EntitySet="IzınTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IzınTBL_PersonelTurTBL" Association="Self.FK_IzınTBL_PersonelTurTBL">
+            <End Role="PersonelTurTBL" EntitySet="PersonelTurTBL" />
+            <End Role="IzınTBL" EntitySet="IzınTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LaboratuvarlarTBL_LabTurTBL" Association="Self.FK_LaboratuvarlarTBL_LabTurTBL">
+            <End Role="LabTurTBL" EntitySet="LabTurTBL" />
+            <End Role="LaboratuvarlarTBL" EntitySet="LaboratuvarlarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NumunelerTBL_LaboratuvarlarTBL" Association="Self.FK_NumunelerTBL_LaboratuvarlarTBL">
+            <End Role="LaboratuvarlarTBL" EntitySet="LaboratuvarlarTBL" />
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonellerTBL_LaboratuvarlarTBL" Association="Self.FK_PersonellerTBL_LaboratuvarlarTBL">
+            <End Role="LaboratuvarlarTBL" EntitySet="LaboratuvarlarTBL" />
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RaporlarTBL_LaboratuvarlarTBL" Association="Self.FK_RaporlarTBL_LaboratuvarlarTBL">
+            <End Role="LaboratuvarlarTBL" EntitySet="LaboratuvarlarTBL" />
+            <End Role="RaporlarTBL" EntitySet="RaporlarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NumunelerTBL_LabTurTBL" Association="Self.FK_NumunelerTBL_LabTurTBL">
+            <End Role="LabTurTBL" EntitySet="LabTurTBL" />
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NumunelerTBL_NumuneTurTBL" Association="Self.FK_NumunelerTBL_NumuneTurTBL">
+            <End Role="NumuneTurTBL" EntitySet="NumuneTurTBL" />
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NumunelerTBL_PersonellerTBL" Association="Self.FK_NumunelerTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RaporlarTBL_NumunelerTBL" Association="Self.FK_RaporlarTBL_NumunelerTBL">
+            <End Role="NumunelerTBL" EntitySet="NumunelerTBL" />
+            <End Role="RaporlarTBL" EntitySet="RaporlarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OnaylananRaporTBL_RaporlarTBL" Association="Self.FK_OnaylananRaporTBL_RaporlarTBL">
+            <End Role="RaporlarTBL" EntitySet="RaporlarTBL" />
+            <End Role="OnaylananRaporTBL" EntitySet="OnaylananRaporTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonellerTBL_PersonelTurTBL" Association="Self.FK_PersonellerTBL_PersonelTurTBL">
+            <End Role="PersonelTurTBL" EntitySet="PersonelTurTBL" />
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RaporlarTBL_PersonellerTBL" Association="Self.FK_RaporlarTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="RaporlarTBL" EntitySet="RaporlarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RaporlarTBL_RaporTurTBL" Association="Self.FK_RaporlarTBL_RaporTurTBL">
+            <End Role="RaporTurTBL" EntitySet="RaporTurTBL" />
+            <End Role="RaporlarTBL" EntitySet="RaporlarTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OdenenFaturaTBL_PersonellerTBL" Association="LaboratuvarDBModel.FK_OdenenFaturaTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="OdenenFaturaTBL" EntitySet="OdenenFaturaTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OnaylananRaporTBL_PersonellerTBL" Association="LaboratuvarDBModel.FK_OnaylananRaporTBL_PersonellerTBL">
+            <End Role="PersonellerTBL" EntitySet="PersonellerTBL" />
+            <End Role="OnaylananRaporTBL" EntitySet="OnaylananRaporTBL" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_OdenenFaturaTBL_PersonellerTBL">
+          <End Type="LaboratuvarDBModel.PersonellerTBL" Role="PersonellerTBL" Multiplicity="0..1" />
+          <End Type="LaboratuvarDBModel.OdenenFaturaTBL" Role="OdenenFaturaTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="OdenenFaturaTBL">
+              <PropertyRef Name="IslemYapanPersonel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OnaylananRaporTBL_PersonellerTBL">
+          <End Type="LaboratuvarDBModel.PersonellerTBL" Role="PersonellerTBL" Multiplicity="0..1" />
+          <End Type="LaboratuvarDBModel.OnaylananRaporTBL" Role="OnaylananRaporTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonellerTBL">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="OnaylananRaporTBL">
+              <PropertyRef Name="OnaylayanPersonelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LaboratuvarDBModelStoreContainer" CdmEntityContainer="LaboratuvarDBEntities2">
+          <EntitySetMapping Name="DeneylerTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.DeneylerTBL">
+              <MappingFragment StoreEntitySet="DeneylerTBL">
+                <ScalarProperty Name="DeneyID" ColumnName="DeneyID" />
+                <ScalarProperty Name="DeneyAdi" ColumnName="DeneyAdi" />
+                <ScalarProperty Name="DeneyTurID" ColumnName="DeneyTurID" />
+                <ScalarProperty Name="DeneyYapanPersonelID1" ColumnName="DeneyYapanPersonelID1" />
+                <ScalarProperty Name="NumuneID" ColumnName="NumuneID" />
+                <ScalarProperty Name="NumuneTurID" ColumnName="NumuneTurID" />
+                <ScalarProperty Name="DeneyUcret" ColumnName="DeneyUcret" />
+                <ScalarProperty Name="DeneyTarih" ColumnName="DeneyTarih" />
+                <ScalarProperty Name="DeneyDurum" ColumnName="DeneyDurum" />
+                <ScalarProperty Name="KullanılanMalzID2" ColumnName="KullanılanMalzID2" />
+                <ScalarProperty Name="RaporTurID" ColumnName="RaporTurID" />
+                <ScalarProperty Name="FaturaTurID" ColumnName="FaturaTurID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeneyOnayTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.DeneyOnayTBL">
+              <MappingFragment StoreEntitySet="DeneyOnayTBL">
+                <ScalarProperty Name="DeneyOnayID" ColumnName="DeneyOnayID" />
+                <ScalarProperty Name="DeneyID" ColumnName="DeneyID" />
+                <ScalarProperty Name="DeneyOnayTarih" ColumnName="DeneyOnayTarih" />
+                <ScalarProperty Name="DeneyOnayDurumu" ColumnName="DeneyOnayDurumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeneyPersonelIslemTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.DeneyPersonelIslemTBL">
+              <MappingFragment StoreEntitySet="DeneyPersonelIslemTBL">
+                <ScalarProperty Name="IslemID" ColumnName="IslemID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="DeneyID" ColumnName="DeneyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeneyTurTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.DeneyTurTBL">
+              <MappingFragment StoreEntitySet="DeneyTurTBL">
+                <ScalarProperty Name="DeneyTurID" ColumnName="DeneyTurID" />
+                <ScalarProperty Name="DeneyTur" ColumnName="DeneyTur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DuyurularTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.DuyurularTBL">
+              <MappingFragment StoreEntitySet="DuyurularTBL">
+                <ScalarProperty Name="DuyuruID" ColumnName="DuyuruID" />
+                <ScalarProperty Name="DuyuruBaşlık" ColumnName="DuyuruBaşlık" />
+                <ScalarProperty Name="Duyruİçerik" ColumnName="Duyruİçerik" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="DuyuruDurum" ColumnName="DuyuruDurum" />
+                <ScalarProperty Name="DuyuruEkleyenPersonelID" ColumnName="DuyuruEkleyenPersonelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FaturalarTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.FaturalarTBL">
+              <MappingFragment StoreEntitySet="FaturalarTBL">
+                <ScalarProperty Name="FaturaID" ColumnName="FaturaID" />
+                <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+                <ScalarProperty Name="FaturaTarih" ColumnName="FaturaTarih" />
+                <ScalarProperty Name="LabID" ColumnName="LabID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="NumuneID" ColumnName="NumuneID" />
+                <ScalarProperty Name="FaturaDurumu" ColumnName="FaturaDurumu" />
+                <ScalarProperty Name="FaturaTutar" ColumnName="FaturaTutar" />
+                <ScalarProperty Name="FaturaTurID" ColumnName="FaturaTurID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FaturaTurTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.FaturaTurTBL">
+              <MappingFragment StoreEntitySet="FaturaTurTBL">
+                <ScalarProperty Name="FaturaTurID" ColumnName="FaturaTurID" />
+                <ScalarProperty Name="FaturaTur" ColumnName="FaturaTur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IzınTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.IzınTBL">
+              <MappingFragment StoreEntitySet="IzınTBL">
+                <ScalarProperty Name="IzinID" ColumnName="IzinID" />
+                <ScalarProperty Name="IzinAlanPersonelID" ColumnName="IzinAlanPersonelID" />
+                <ScalarProperty Name="IzınAlanPersonelGoreviID" ColumnName="IzınAlanPersonelGoreviID" />
+                <ScalarProperty Name="PersonelIzinDurumu" ColumnName="PersonelIzinDurumu" />
+                <ScalarProperty Name="IzinBaslangicTarih" ColumnName="IzinBaslangicTarih" />
+                <ScalarProperty Name="IzınBitisTarih" ColumnName="IzınBitisTarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LaboratuvarlarTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.LaboratuvarlarTBL">
+              <MappingFragment StoreEntitySet="LaboratuvarlarTBL">
+                <ScalarProperty Name="LabID" ColumnName="LabID" />
+                <ScalarProperty Name="LabKodu" ColumnName="LabKodu" />
+                <ScalarProperty Name="LabTurID" ColumnName="LabTurID" />
+                <ScalarProperty Name="LabDurum" ColumnName="LabDurum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LabTurTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.LabTurTBL">
+              <MappingFragment StoreEntitySet="LabTurTBL">
+                <ScalarProperty Name="LabTurID" ColumnName="LabTurID" />
+                <ScalarProperty Name="LabTur" ColumnName="LabTur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MalzemelerTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.MalzemelerTBL">
+              <MappingFragment StoreEntitySet="MalzemelerTBL">
+                <ScalarProperty Name="MalzemeID" ColumnName="MalzemeID" />
+                <ScalarProperty Name="Malzeme" ColumnName="Malzeme" />
+                <ScalarProperty Name="MalzemeDetay" ColumnName="MalzemeDetay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MesajlarTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.MesajlarTBL">
+              <MappingFragment StoreEntitySet="MesajlarTBL">
+                <ScalarProperty Name="MesajlarID" ColumnName="MesajlarID" />
+                <ScalarProperty Name="Gonderen" ColumnName="Gonderen" />
+                <ScalarProperty Name="Alıcı" ColumnName="Alıcı" />
+                <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Konu" ColumnName="Konu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NumunelerTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.NumunelerTBL">
+              <MappingFragment StoreEntitySet="NumunelerTBL">
+                <ScalarProperty Name="NumuneID" ColumnName="NumuneID" />
+                <ScalarProperty Name="NumuneAd" ColumnName="NumuneAd" />
+                <ScalarProperty Name="NumuneSoyad" ColumnName="NumuneSoyad" />
+                <ScalarProperty Name="NumuneTürID" ColumnName="NumuneTürID" />
+                <ScalarProperty Name="NumuneAlanPersonelID" ColumnName="NumuneAlanPersonelID" />
+                <ScalarProperty Name="LabID" ColumnName="LabID" />
+                <ScalarProperty Name="LabTurID" ColumnName="LabTurID" />
+                <ScalarProperty Name="NumuneAlinisTarih" ColumnName="NumuneAlinisTarih" />
+                <ScalarProperty Name="NumuneMiktar" ColumnName="NumuneMiktar" />
+                <ScalarProperty Name="NumuneAdet" ColumnName="NumuneAdet" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="NumSifre1" ColumnName="NumSifre1" />
+                <ScalarProperty Name="NumSifre2" ColumnName="NumSifre2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NumuneTurTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.NumuneTurTBL">
+              <MappingFragment StoreEntitySet="NumuneTurTBL">
+                <ScalarProperty Name="NumuneTurID" ColumnName="NumuneTurID" />
+                <ScalarProperty Name="NumuneTur" ColumnName="NumuneTur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OdenenFaturaTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.OdenenFaturaTBL">
+              <MappingFragment StoreEntitySet="OdenenFaturaTBL">
+                <ScalarProperty Name="IslemYapanPersonel" ColumnName="IslemYapanPersonel" />
+                <ScalarProperty Name="ÖdenenFaturaID" ColumnName="ÖdenenFaturaID" />
+                <ScalarProperty Name="FaturaID" ColumnName="FaturaID" />
+                <ScalarProperty Name="OdenmeTarih" ColumnName="OdenmeTarih" />
+                <ScalarProperty Name="FaturaOdenmeDurum" ColumnName="FaturaOdenmeDurum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OnaylananRaporTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.OnaylananRaporTBL">
+              <MappingFragment StoreEntitySet="OnaylananRaporTBL">
+                <ScalarProperty Name="OnaylayanPersonelID" ColumnName="OnaylayanPersonelID" />
+                <ScalarProperty Name="OnayRaporID" ColumnName="OnayRaporID" />
+                <ScalarProperty Name="RaporID" ColumnName="RaporID" />
+                <ScalarProperty Name="OnayRaporDurum" ColumnName="OnayRaporDurum" />
+                <ScalarProperty Name="OnayTarihi" ColumnName="OnayTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonellerTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.PersonellerTBL">
+              <MappingFragment StoreEntitySet="PersonellerTBL">
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="PersonelAd" ColumnName="PersonelAd" />
+                <ScalarProperty Name="PersonelSoyad" ColumnName="PersonelSoyad" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="KullanıcıAdi" ColumnName="KullanıcıAdi" />
+                <ScalarProperty Name="Sifre1" ColumnName="Sifre1" />
+                <ScalarProperty Name="Sifre2" ColumnName="Sifre2" />
+                <ScalarProperty Name="PersonelTurID" ColumnName="PersonelTurID" />
+                <ScalarProperty Name="LabID" ColumnName="LabID" />
+                <ScalarProperty Name="PersonelDurum" ColumnName="PersonelDurum" />
+                <ScalarProperty Name="PersonelSilmeDurum" ColumnName="PersonelSilmeDurum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelTurTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.PersonelTurTBL">
+              <MappingFragment StoreEntitySet="PersonelTurTBL">
+                <ScalarProperty Name="PersonelTurID" ColumnName="PersonelTurID" />
+                <ScalarProperty Name="PersonelTur" ColumnName="PersonelTur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RaporlarTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.RaporlarTBL">
+              <MappingFragment StoreEntitySet="RaporlarTBL">
+                <ScalarProperty Name="RaporID" ColumnName="RaporID" />
+                <ScalarProperty Name="LabID" ColumnName="LabID" />
+                <ScalarProperty Name="NumuneID" ColumnName="NumuneID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="RaporNo" ColumnName="RaporNo" />
+                <ScalarProperty Name="RaporDurum" ColumnName="RaporDurum" />
+                <ScalarProperty Name="RaporDuzenTarih" ColumnName="RaporDuzenTarih" />
+                <ScalarProperty Name="RaporTurID" ColumnName="RaporTurID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RaporTurTBL">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.RaporTurTBL">
+              <MappingFragment StoreEntitySet="RaporTurTBL">
+                <ScalarProperty Name="RaporTurID" ColumnName="RaporTurID" />
+                <ScalarProperty Name="RaporTur" ColumnName="RaporTur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LaboratuvarDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

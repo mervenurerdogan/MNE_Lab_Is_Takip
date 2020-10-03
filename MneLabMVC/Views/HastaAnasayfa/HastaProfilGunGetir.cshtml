@@ -1,0 +1,90 @@
+﻿@model MneLabMVC.Models.Entitys.NumunelerTBL
+@{
+    ViewBag.Title = "HastaProfilGunGetir";
+    Layout = "~/Views/Shared/Hasta_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+
+
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<body>
+    <br />
+    <br />
+    <br />
+    @using (Html.BeginForm("HastaProfilGuncelle", "HastaAnasayfa", FormMethod.Post))
+    {
+
+        <h2 class="w3-center">Profilim</h2>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Mail Adresiniz</label>
+                @HttpContext.Current.User.Identity.Name
+            </div>
+        </div>
+
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Adınız</label>
+                @Html.TextBoxFor(x => x.NumuneAd, new { @class = "w3-input w3-border" })
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Soyadınız</label>
+                @Html.TextBoxFor(x => x.NumuneSoyad, new { @class = "w3-input w3-border" })
+            </div>
+        </div>
+
+
+      
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Şifreniz</label>
+                @Html.TextBoxFor(x => x.NumSifre1, new { @class = "w3-input w3-border" })
+                @Html.ValidationMessageFor(model => model.NumSifre1, "", new { @class = "text-danger", @style = "color:red" })
+            </div>
+        </div>
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label> Şifre Tekrar</label>
+                @Html.TextBoxFor(x => x.NumSifre2, new { @class = "w3-input w3-border" })
+                @Html.ValidationMessageFor(model => model.NumSifre2, "", new { @class = "text-danger", @style = "color:red" })
+            </div>
+        </div>
+
+        
+    <div style="background-color:antiquewhite;color:brown">
+        @ViewBag.GuncellemeMesajı
+    </div>
+
+
+        <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Bilgilerimi Güncelle</button>
+
+
+
+    }
+
+
+</body>
+</html>

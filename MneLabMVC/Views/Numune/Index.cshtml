@@ -1,0 +1,82 @@
+﻿
+@using MneLabMVC.Models.Entitys
+@model List<NumunelerTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<html>
+
+<head>
+    <title>NumuneGörüntüle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>Numune Bilgileri</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Numune ID</th>
+            <th>Numune Ad Soyad</th>
+            <th>Numune Alan Personel</th>
+            <th>Laboratuvar Adı</th>
+            <th>Numune Alınış Tarih</th>
+            <th>Numune Miktar(ml/gr)</th>
+            <th>Numune Adet</th>
+            <th>Numune Mail</th>
+            <th>Numene Sifre</th>
+
+
+
+
+
+
+
+
+
+        </tr>
+
+
+
+        @foreach (var numune in Model)
+        {
+
+
+            <tr class="w3-hover-blue">
+                <td>@numune.NumuneID</td>
+                <td>@numune.NumuneAd &nbsp @numune.NumuneSoyad</td>
+                <td>@numune.PersonellerTBL.PersonelAd &nbsp @numune.PersonellerTBL.PersonelSoyad</td>
+                <td>@numune.LaboratuvarlarTBL.LabKodu</td>
+
+                <td>@Convert.ToDateTime(numune.NumuneAlinisTarih).ToString("dd/MM/yyyy")</td>
+
+
+                <td>@numune.NumuneMiktar</td>
+                <td>@numune.NumuneAdet</td>
+                <td>@numune.Mail</td>
+                <td>@numune.NumSifre1</td>
+
+
+
+
+
+            </tr>
+
+        }
+
+    </table>
+    <a href="/Numune/NumuneEkle" class="btn btn-primary">Numune Ekle</a>
+</body>
+
+</html>
+
+
+

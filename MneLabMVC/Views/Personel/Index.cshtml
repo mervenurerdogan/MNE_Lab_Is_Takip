@@ -1,0 +1,67 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<PersonellerTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<html>
+
+<head>
+    <title>PersonelGörüntüle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>Personel Listesi</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Personel ID</th>
+            <th>Personel Adı</th>
+            <th>Personel Soyadı</th>
+            <th>Mail</th>
+            <th>Personel Tür</th>
+            
+            <th>SİL</th>
+         
+
+
+
+
+
+        </tr>
+ 
+         
+
+        @foreach (var per in Model)
+        {
+
+            <tr class="w3-hover-blue">
+                <td>@per.PersonelID</td>
+                <td>@per.PersonelAd</td>
+                <td>@per.PersonelSoyad</td>
+                <td>@per.Mail</td>
+                <td>@per.PersonelTurTBL.PersonelTur</td>
+              
+                <td><a href="/Personel/PersonelSil/@per.PersonelID" class="btn btn-danger">Sil</a></td>
+
+             
+
+            </tr>
+
+        }
+
+    </table>
+    <a href="/Personel/PersonelEkle" class="btn btn-primary">Personel Ekle</a>
+</body>
+
+</html>
+
+
+

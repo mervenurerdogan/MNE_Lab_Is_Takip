@@ -1,0 +1,136 @@
+﻿@model MneLabMVC.Models.Entitys.NumunelerTBL
+@{
+    ViewBag.Title = "NumuneEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+
+<title>Numune Kayıt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<body>
+    <br />
+    <br />
+    <br />
+
+    <form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" method="post">
+        <h2 class="w3-center">Numune Kayıt</h2>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <input class="w3-input w3-border" name="NumuneAd" type="text" placeholder="Adınız">
+            </div>
+        </div>
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <input class="w3-input w3-border" name="NumuneSoyad" type="text" placeholder="Soyadınız">
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+
+                @Html.DropDownListFor(x => x.NumuneTurTBL.NumuneTurID, (List<SelectListItem>)ViewBag.dgrnum, new { @class = "w3-input w3-border" })
+            </div>
+        </div>
+
+
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+
+                @Html.DropDownListFor(x => x.PersonellerTBL.PersonelID, (IEnumerable<SelectListItem>)ViewBag.dgrper, new { @class = "w3-input w3-border" })
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+
+                @Html.DropDownListFor(x => x.LaboratuvarlarTBL.LabID, (List<SelectListItem>)ViewBag.dgrlab, new { @class = "w3-input w3-border" })
+            </div>
+        </div>
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Numune Alınış Tarih</label>
+                <input type="text" class="w3-input w3-border" name="NumuneAlinisTarih" value="@DateTime.Now.ToShortDateString()" />
+            </div>
+        </div>
+
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Numune Miktar(ml/gr)</label>
+                @Html.TextBoxFor(x=>x.NumuneMiktar, new { @class= "w3-input w3-border" })
+
+            </div>
+        </div>
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Numune Adet(Tüp Adedi)</label>
+                <input type="text" class="w3-input w3-border" name="NumuneAdet" placeholder="Numune Adetini  Giriniz.." />
+
+            </div>
+        </div>
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Numune Mail </label>
+                <input type="text" class="w3-input w3-border" name="Mail" placeholder="Numune Mailini Alın" />
+
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Numune Şifre Verin </label>
+                <input type="text" class="w3-input w3-border" name="NumSifre1" placeholder="Numune Geçici Şifre  Oluşturun" />
+
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                <label>Numune Şifre Verin </label>
+                <input type="text" class="w3-input w3-border" name="NumSifre2" placeholder="Numune Geçici  Şifre  Oluşturun" />
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Numune Ekle</button>
+
+    </form>
+
+</body>
+</html>
+

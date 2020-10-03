@@ -1,0 +1,63 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<OnaylananRaporTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+
+
+<html>
+
+<head>
+    <title>OnaylananRaporlar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>Onaylanan Rapor Listesi</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Onaylanan Rapor</th>
+            <th>Rapor Onaylayan Personel</th>
+            <th>Tarih</th>
+
+
+
+
+
+
+
+        </tr>
+
+
+
+        @foreach (var rap in Model)
+        {
+
+    <tr class="w3-hover-blue">
+        <td>@rap.RaporlarTBL.RaporNo</td>
+        <td>@rap.PersonellerTBL.PersonelAd &nbsp @rap.PersonellerTBL.PersonelSoyad</td>
+        <td>@Convert.ToDateTime(rap.OnayTarihi).ToShortDateString()</td>
+
+
+
+
+
+
+
+    </tr>
+
+        }
+
+    </table>
+    <a href="/Rapor/RaporEkle" class="btn btn-primary">Onay  Ekle</a>
+</body>
+
+</html>

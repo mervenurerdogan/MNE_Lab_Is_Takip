@@ -1,0 +1,59 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<MesajlarTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Hasta_Layout.cshtml";
+}
+
+
+
+<html>
+
+<head>
+    <title>GelenMesajlar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+<h3>Gelen Mesajlar</h3>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Gönderen</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
+            <th>İşlem Zamanı</th>
+            <th>İşlem</th>
+
+
+        </tr>
+
+
+
+        @foreach (var msj in Model)
+        {
+
+
+            <tr class="w3-hover-blue">
+                <td>@msj.Gonderen</td>
+                <td>@msj.Konu</td>
+                <td>@msj.Mesaj</td>
+                <td>@Convert.ToDateTime(msj.Tarih).ToShortDateString()</td>
+                <th><a href="/HastaMesajlar/YeniMesaj/@msj.MesajlarID" class="btn btn-success">Yanıtla</a></th>
+
+
+
+            </tr>
+
+        }
+
+    </table>
+
+</body>
+
+</html>

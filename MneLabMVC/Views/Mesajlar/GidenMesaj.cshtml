@@ -1,0 +1,58 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<MesajlarTBL>
+@{
+    ViewBag.Title = "GelenMesaj";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+
+<html>
+
+<head>
+    <title>GidenMesajlar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Alıcı</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
+            <th>İşlem Zamanı</th>
+
+
+        </tr>
+
+
+
+        @foreach (var msj in Model)
+        {
+
+
+            <tr class="w3-hover-blue">
+                <td>@msj.Alıcı</td>
+                <td>@msj.Konu</td>
+                <td>@msj.Mesaj</td>
+                <td>@Convert.ToDateTime(msj.Tarih).ToShortDateString()   </td>
+
+
+
+            </tr>
+
+        }
+
+    </table>
+
+</body>
+
+</html>

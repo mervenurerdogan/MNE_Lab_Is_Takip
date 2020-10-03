@@ -1,0 +1,58 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<LaboratuvarlarTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Sisteme Kayıtlı Laboratuvarların Listesi</h2>
+
+<html>
+
+<head>
+    <title>LabGörüntüle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+      
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+           <th>Laboratuvar ID</th>
+           <th>Laboratuvar Kodu</th>
+           <th>Laboratuvar Türü</th>
+            <th>Laboratuvar Güncelle</th>
+
+
+        </tr>
+
+
+
+        @foreach (var lab in Model)
+        {
+
+
+            <tr class="w3-hover-blue">
+                <td>@lab.LabID</td>
+                <td>@lab.LabKodu</td>
+                <td>@lab.LabTurTBL.LabTur</td>
+                <td><a href="/Lab/LabGetir/@lab.LabID" class="btn btn-success">Güncelle</a> </td>
+
+
+            </tr>
+
+        }
+
+    </table>
+    <a href="/Lab/LabEkle" class="btn btn-primary">Laboratuvar Ekle</a>
+</body>
+
+</html>
+
+

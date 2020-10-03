@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="407d4c28b18d440e92786fd74642590a" Name="Diagram1">
+        <EntityTypeShape EntityType="LaboratuvarDBModel.DeneylerTBL" Width="1.5" PointX="10.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.DeneyOnayTBL" Width="1.5" PointX="12.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.DeneyPersonelIslemTBL" Width="1.5" PointX="15.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.DeneyTurTBL" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.DuyurularTBL" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.FaturalarTBL" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.FaturaTurTBL" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.IzınTBL" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.LaboratuvarlarTBL" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.LabTurTBL" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.MalzemelerTBL" Width="1.5" PointX="8.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.MesajlarTBL" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.NumunelerTBL" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.NumuneTurTBL" Width="1.5" PointX="6" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.OdenenFaturaTBL" Width="1.5" PointX="7.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.OnaylananRaporTBL" Width="1.5" PointX="15.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.PersonellerTBL" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.PersonelTurTBL" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.RaporlarTBL" Width="1.5" PointX="13.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.RaporTurTBL" Width="1.5" PointX="11.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratuvarDBModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DeneylerTBL_DeneyTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DeneylerTBL_FaturaTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DeneylerTBL_MalzemelerTBL4" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DeneylerTBL_NumunelerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DeneylerTBL_NumuneTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DeneylerTBL_PersonellerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DeneylerTBL_RaporTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DeneyOnayTBL_DeneylerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DeneyPersonelIslemTBL_DeneylerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DeneyPersonelIslemTBL_PersonellerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_DuyurularTBL_PersonellerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_FaturalarTBL_FaturaTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_FaturalarTBL_LaboratuvarlarTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_FaturalarTBL_NumunelerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_FaturalarTBL_PersonellerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_OdenenFaturaTBL_FaturalarTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_IzınTBL_PersonellerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_IzınTBL_PersonelTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_LaboratuvarlarTBL_LabTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_NumunelerTBL_LaboratuvarlarTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_PersonellerTBL_LaboratuvarlarTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_RaporlarTBL_LaboratuvarlarTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_NumunelerTBL_LabTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_NumunelerTBL_NumuneTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_NumunelerTBL_PersonellerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_RaporlarTBL_NumunelerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_OnaylananRaporTBL_RaporlarTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_PersonellerTBL_PersonelTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_RaporlarTBL_PersonellerTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_RaporlarTBL_RaporTurTBL" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_OdenenFaturaTBL_PersonellerTBL" />
+        <AssociationConnector Association="LaboratuvarDBModel.FK_OnaylananRaporTBL_PersonellerTBL" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
