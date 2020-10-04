@@ -61,7 +61,8 @@ namespace MneLabMVC.Controllers
 
             return View( degerler);
         }
-      
+
+        
         public ActionResult ProfilGuncelle(PersonellerTBL p)
         {
             if (!ModelState.IsValid)
@@ -107,7 +108,7 @@ namespace MneLabMVC.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("IlkSayfa","Index");
+            return RedirectToAction("GirisYap","Login");
         }
     }
 }

@@ -31,10 +31,10 @@
             <th>Laboratuvar</th>
             <th>Fatura Kesen Personel</th>
             <th>Fatura Sahibi </th>
-         
+
             <th>Fatura Tutar</th>
-        
-     
+
+
 
 
 
@@ -47,26 +47,27 @@
         @foreach (var fat in Model)
         {
 
-    <tr class="w3-hover-blue">
-        <td>@fat.FaturaTurTBL.FaturaTur</td>
-        <td>@fat.FaturaNo</td>
-        <td>@Convert.ToDateTime(fat.FaturaTarih).ToShortDateString()</td>
-        <td>@fat.LaboratuvarlarTBL.LabKodu</td>
-        <td>@fat.PersonellerTBL.PersonelAd &nbsp @fat.PersonellerTBL.PersonelSoyad</td>
-        <td>@fat.NumunelerTBL.NumuneAd &nbsp @fat.NumunelerTBL.NumuneSoyad</td>
-  
-        <td>@fat.FaturaTutar</td>
+            <tr class="w3-hover-blue">
+                <td>@fat.FaturaTurTBL.FaturaTur</td>
+                <td>@fat.FaturaNo</td>
+                <td>@Convert.ToDateTime(fat.FaturaTarih).ToShortDateString()</td>
+                <td>@fat.LaboratuvarlarTBL.LabKodu</td>
+                <td>@fat.PersonellerTBL.PersonelAd &nbsp @fat.PersonellerTBL.PersonelSoyad</td>
+                <td>@fat.NumunelerTBL.NumuneAd &nbsp @fat.NumunelerTBL.NumuneSoyad</td>
 
-   
+                <td>@fat.FaturaTutar</td>
 
 
 
-    </tr>
+
+
+            </tr>
 
         }
 
     </table>
     <a href="/Fatura/FaturaEkle" class="btn btn-primary">Fatura Ekle</a>
+    <a href="/Fatura/FaturaListeYazdir" style="margin-left:50px" class="btn btn-danger">Liste Yazdır</a>
 </body>
 
 </html>

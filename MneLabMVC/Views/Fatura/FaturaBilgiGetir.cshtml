@@ -1,0 +1,97 @@
+﻿@model MneLabMVC.Models.Entitys.FaturalarTBL
+@{
+    ViewBag.Title = "FaturaBilgiGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <title>RaporEkle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <br />
+    <br />
+    <br />
+
+    @using (Html.BeginForm("FaturaOdemeYap", "Fatura", FormMethod.Post))
+    {
+
+
+
+
+        <h2 class="w3-center">Fatura Öde</h2>
+
+        @*<div class="w3-row w3-section">
+
+                <div class="w3-rest">
+                 @Html.DropDownListFor(x=>x.RaporTurTBL.RaporTurID,(List<SelectListItem>)ViewBag.turdgr,"Rapor Türü", new { @class = "form-control" })
+                </div>
+            </div>*@
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                @Html.TextBoxFor(x => x.FaturaNo, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                @Html.TextBoxFor(x => x.FaturaTarih, "{0:MM/dd/yyyy}", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+
+                @Html.DropDownListFor(x => x.LaboratuvarlarTBL.LabID, (List<SelectListItem>)ViewBag.labdgr, "Laboratuvar Seçiniz", new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                @Html.DropDownListFor(x => x.PersonellerTBL.PersonelID, (List<SelectListItem>)ViewBag.persdgr, "Rapor Veren  Personel", new { @class = "form-control" })
+
+            </div>
+        </div>
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                @Html.DropDownListFor(x => x.NumunelerTBL.NumuneID, (List<SelectListItem>)ViewBag.numdgr, "Rapor Sahibi ", new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="w3-row w3-section">
+
+            <div class="w3-rest">
+                @Html.TextBoxFor(x => x.FaturaTutar, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Fatura Ödeme</button>
+
+        @Html.HiddenFor(n => n.FaturaID)
+        <input type="hidden" name="FaturaDurumu" value="True" />
+    }
+
+
+</body>
+</html>
+
+

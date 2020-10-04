@@ -20,36 +20,33 @@
 
 <body>
     @using (Html.BeginForm("MalzemeGuncelle", "CihazMalz", FormMethod.Post))
+
     {
+            <br />
+            <div class="w3-row w3-section">
+                <label style="font-size:large">Cihaz/Malzeme Adı</label>
+                <div class="w3-rest">
+                    @Html.TextBoxFor(x => x.Malzeme, new { @class = "form-control" })
+
+                </div>
+            </div>
+            <br />
 
 
-    <form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" method="post">
-        
+            <div class="w3-row w3-section">
+
+                <label style="font-size:large">Cihaz/Malzeme Detayı</label>
+                <div class="w3-rest">
+                    @Html.TextAreaFor(x => x.MalzemeDetay, new { @class = "form-control" })
+
+                </div>
+            </div>
+
+
+       
+
+
         <br />
-        <div class="w3-row w3-section">
-            <label style="font-size:large">Cihaz/Malzeme Adı</label>
-            <div class="w3-rest">
-                @Html.TextBoxFor(x => x.Malzeme, new { @class = "form-control" })
-
-            </div>
-        </div>
-        <br/>
-        
-
-        <div class="w3-row w3-section">
-          
-            <label style="font-size:large" >Cihaz/Malzeme Detayı</label>
-            <div class="w3-rest">
-                @Html.TextAreaFor(x => x.MalzemeDetay, new { @class = "form-control" })
-
-            </div>
-        </div>
-
-
-    </form>
-
-
-    <br />
 
         <div>
             <button class="btn btn-warning">Güncelle</button>
@@ -58,8 +55,10 @@
 
         @Html.HiddenFor(n => n.MalzemeID)
 
-
     }
+
+
+
 
 </body>
 

@@ -1,0 +1,93 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<FaturalarTBL>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+    <title>Fatura Listesi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+</head>
+<body>
+    <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+        <thead>
+            <tr class="w3-light-grey w3-hover-red">
+                <th>Fatura Türü</th>
+                <th>Fatura No</th>
+                <th>Fatura Kesim Tarihi</th>
+                <th>Laboratuvar</th>
+                <th>Fatura Kesen Personel</th>
+                <th>Fatura Sahibi</th>
+                <th>Fatura Tutarı(TL)</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var fatura in Model)
+            {
+
+
+                <tr class="w3-hover-blue">
+                    <td>@fatura.FaturaTurTBL.FaturaTur</td>
+                    <td>@fatura.FaturaNo</td>
+                    <td>@Convert.ToDateTime(fatura.FaturaTarih).ToString("dd/MM/yyyy")</td>
+                    <td>@fatura.LaboratuvarlarTBL.LabKodu</td>
+
+                    <td>@fatura.PersonellerTBL.PersonelAd &nbsp @fatura.PersonellerTBL.PersonelSoyad</td>
+
+
+
+
+                    <td>@fatura.NumunelerTBL.NumuneAd &nbsp @fatura.NumunelerTBL.NumuneSoyad</td>
+                    <td>@fatura.FaturaTutar</td>
+
+
+
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+
+
+    <a href="/Anasayfa/Index" class="btn btn-success">Anasayfa</a>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                lengthChange: false,
+                buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis']
+            });
+
+            table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+</body>
+</html>

@@ -17,6 +17,13 @@ namespace MneLabMVC.Controllers
             return View(degerler);
         }
 
+        public ActionResult FaturaListeYazdir()
+        {
+
+            var fatura = db.FaturalarTBL.ToList();
+            return View(fatura);
+        }
+
         public ActionResult OdenmeyenFatura()
         {
             var degerler = db.FaturalarTBL.Where(x => x.FaturaDurumu == false).ToList();
@@ -108,6 +115,78 @@ namespace MneLabMVC.Controllers
             return RedirectToAction("Index");
         }
 
+    public ActionResult FaturaBilgiGetir(int id){
+            var fatura = db.FaturalarTBL.Find(id);
+
+
+            List<SelectListItem> labdeger = (from i in db.LaboratuvarlarTBL.ToList()
+
+                                             select new SelectListItem
+                                             {
+                                                 Text = i.LabKodu,
+                                                 Value = i.LabID.ToString()
+
+
+                                             }
+                                         ).ToList();
+
+            ViewBag.labdgr = labdeger;
+
+            List<SelectListItem> persdeger = (from i in db.PersonellerTBL.ToList()
+                                              select new SelectListItem
+                                              {
+
+                                                  Text = i.PersonelAd + " " + i.PersonelSoyad,
+                                                  Value = i.PersonelID.ToString()
+                                              }
+                                            ).ToList();
+
+            ViewBag.persdgr = persdeger;
+
+            List<SelectListItem> numdeger = (from i in db.NumunelerTBL.ToList()
+
+                                             select new SelectListItem
+                                             {
+                                                 Text = i.NumuneAd + " " + i.NumuneSoyad,
+                                                 Value = i.NumuneID.ToString()
+                                             }
+
+                                           ).ToList();
+
+            ViewBag.numdgr = numdeger;
+
+
+         
+
+
+
+            return View("FaturaBilgiGetir",fatura);
+        }
+
+        public ActionResult FaturaOdemeYap(FaturalarTBL ftr)
+        {
+            var fatura = db.FaturalarTBL.Find(ftr.FaturaID);
+            fatura.FaturaNo = ftr.FaturaNo;
+            fatura.FaturaTarih = ftr.FaturaTarih;
+            fatura.FaturaTutar = ftr.FaturaTutar;
+
+            var d1 = db.LaboratuvarlarTBL.Where(x => x.LabID == ftr.LaboratuvarlarTBL.LabID).FirstOrDefault();
+            fatura.LabID = d1.LabID;
+
+            var d2 = db.PersonellerTBL.Where(x => x.PersonelID == ftr.PersonellerTBL.PersonelID).FirstOrDefault();
+            fatura.PersonelID = d2.PersonelID;
+
+            var d3 = db.NumunelerTBL.Where(x => x.NumuneID == ftr.NumunelerTBL.NumuneID).FirstOrDefault();
+            fatura.NumuneID = d3.NumuneID;
+
+            fatura.FaturaDurumu = true;
+
+            db.SaveChanges();
+           
+
+
+            return RedirectToAction("Index");
+        }
 
     }
 }

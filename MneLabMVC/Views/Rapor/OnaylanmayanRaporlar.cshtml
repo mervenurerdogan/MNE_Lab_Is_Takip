@@ -10,7 +10,7 @@
 <html>
 
 <head>
-    <title>RaporGörüntüle</title>
+    <title>OnaylanmayanRaporGörüntüle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -47,13 +47,13 @@
         {
 
             <tr class="w3-hover-blue">
-                <td>@rap.RaporTurTBL.RaporTurID</td>
+                <td>@rap.RaporTurTBL.RaporTur</td>
                 <td>@rap.RaporNo</td>
                 <td>@Convert.ToDateTime(rap.RaporDuzenTarih).ToShortDateString()</td>
                 <td>@rap.LaboratuvarlarTBL.LabKodu</td>
                 <td>@rap.PersonellerTBL.PersonelAd &nbsp @rap.PersonellerTBL.PersonelSoyad</td>
                 <td>@rap.NumunelerTBL.NumuneAd &nbsp @rap.NumunelerTBL.NumuneSoyad</td>
-                <td><a href="/OnaylananRapor/OnayEkle/@rap.RaporID" class="btn btn-danger" > Rapor Onayla</a></td>
+                <td><a href="/Rapor/RaporGetir/@rap.RaporID" class="btn btn-danger" > Rapor Onayla</a></td>
 
 
 

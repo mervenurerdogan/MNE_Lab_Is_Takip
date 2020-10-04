@@ -50,39 +50,9 @@ namespace MneLabMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult LabGetir(int id)
-        {
-            var lab = db.LaboratuvarlarTBL.Find(id);
-            List<SelectListItem> labgnc = (from i in db.LabTurTBL.ToList()
-                                           select new SelectListItem
-                                           {
-                                               Text = i.LabTur,
-                                               Value = i.LabTurID.ToString()
 
 
-                                           }
-
-
-                                         ).ToList();
-
-            ViewBag.tudgr = labgnc;
-
-            return View("LabGetir", lab);
-        }
-
-        public ActionResult LabGuncelle(LaboratuvarlarTBL l1)
-        {
-            var lab = db.LaboratuvarlarTBL.Find(l1.LabKodu);
-            lab.LabKodu = l1.LabKodu;
-            var labtur = db.LabTurTBL.Where(m => m.LabTurID == l1.LabTurTBL.LabTurID).FirstOrDefault();
-            lab.LabTurID = labtur.LabTurID;
-            db.SaveChanges();
-
-
-
-
-            return RedirectToAction("Index");
-        }
+       
     }
 
 }

@@ -13,12 +13,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
     <title>MNELAB</title>
 
     <!-- Bootstrap core CSS -->
@@ -37,6 +31,14 @@
     <div class="d-flex" id="wrapper">
 
         <!-- Sidebar -->
+
+
+
+
+
+
+
+
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">
                 <p>Hoşgeldiniz </p>
@@ -71,7 +73,7 @@
                     <a href="#" class="list-group-item list-group-item-action bg-light">Personel İşlemleri</a>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
                         <a href="/Personel/Index" class="w3-bar-item w3-button">Personel Görüntüle</a>@*Personel Listesi*@
-                        <a href="/Personel/PersonelEkle" class="w3-bar-item w3-button">Personel Ekle</a>@*Personel ekle*@
+                       
                         <a href="/Izin/Index" class="w3-bar-item w3-button">İzinli Personeller</a>
                         <a href="/Izin/IzinAl" class="w3-bar-item w3-button">İzin Al</a>
 
@@ -85,22 +87,22 @@
                     <div class="w3-dropdown-content w3-bar-block w3-border">
                         <a href="/CihazMalz/Index" class="w3-bar-item w3-button">Cihazları Görüntüle</a>@*Malzeme listesi*@
                         <a href="/CihazMalz/MalzemeEkle" class="w3-bar-item w3-button">Cihaz Ekle</a>@**@
-                        <a href="#" class="w3-bar-item w3-button">Cihaz Kullanım Durumu Aktif Olan</a>@*Arızalı yada değil*@
+                        <!--<a href="#" class="w3-bar-item w3-button">Cihaz Kullanım Durumu Aktif Olan</a>-->@*Arızalı yada değil*@
 
                     </div>
                 </div>
 
 
-                <div class="w3-dropdown-hover">
+                <!--<div class="w3-dropdown-hover">
 
                     <a href="#" class="list-group-item list-group-item-action bg-light">İş Takip İşlemleri</a>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="#" class="w3-bar-item w3-button">Ödeme Kayıtları</a>@*Ödeme personel numune miktar listesi*@
-                        <a href="#" class="w3-bar-item w3-button">Numune Takip </a>@*numune hangi persnoel hangi tür num tarih*@
-                        <a href="#" class="w3-bar-item w3-button">Deney Yapan Personel Listesi</a>@*Deney tablosu personel deney*@
+                        <a href="#" class="w3-bar-item w3-button">Ödeme Kayıtları</a>-->@*Ödeme personel numune miktar listesi*@
+                        <!--<a href="#" class="w3-bar-item w3-button">Numune Takip </a>-->@*numune hangi persnoel hangi tür num tarih*@
+                        <!--<a href="#" class="w3-bar-item w3-button">Deney Yapan Personel Listesi</a>-->@*Deney tablosu personel deney*@
 
-                    </div>
-                </div>
+                    <!--</div>
+                </div>-->
 
 
                 <div class="w3-dropdown-hover">
@@ -111,7 +113,7 @@
                     <div class="w3-dropdown-content w3-bar-block w3-border">
                         <a href="/Lab/Index" class="w3-bar-item w3-button">Laboratuvar Görüntüle</a>@*Laboratuvar listesi*@
                         <a href="/Lab/LabEkle" class="w3-bar-item w3-button">Laboratuvar Ekle </a>
-                        <a href="#" class="w3-bar-item w3-button">Laboratuvar Durumu Görüntüle</a>@*boş mu dolu mu listele*@
+                        <!--<a href="#" class="w3-bar-item w3-button">Laboratuvar Durumu Görüntüle</a>-->@*boş mu dolu mu listele*@
 
                     </div>
                 </div>
@@ -136,7 +138,7 @@
                     <div class="w3-dropdown-content w3-bar-block w3-border">
                         <a href="/Rapor/Index" class="w3-bar-item w3-button">Raporları Görüntüle</a>@*Rapor listesi*@
                         <a href="/Rapor/RaporEkle" class="w3-bar-item w3-button">Rapor Ekle </a>
-                        <a href="/OnaylananRapor/Index" class="w3-bar-item w3-button">Onaylanan Raporlar </a>@*durumu true olanları listele*@
+                        <a href="/Rapor/OnayRaporlar" class="w3-bar-item w3-button">Onaylanan Raporlar </a>@*durumu true olanları listele*@
                         <a href="/Rapor/OnaylanmayanRaporlar" class="w3-bar-item w3-button">Onaylanmayan Raporlar </a>@*durumu false olanları listele*@
                         <a href="#" class="w3-bar-item w3-button">Rapor Çıkart </a>@*yeni liste id ye göre rapor al diyince pdf formata geç*@
 
@@ -150,7 +152,7 @@
                     <div class="w3-dropdown-content w3-bar-block w3-border">
                         <a href="/Fatura/Index" class="w3-bar-item w3-button">Faturaları Görüntüle</a>@*Fatura listesi*@
                         <a href="/Fatura/FaturaEkle" class="w3-bar-item w3-button">Fatura Ekle </a>
-                        <a href="/OdenenFaturalar/Index" class="w3-bar-item w3-button">Ödenen Faturalar </a>@*durumu true olanları listele*@
+                        <a href="/Fatura/OdenenFaturalar" class="w3-bar-item w3-button">Ödenen Faturalar </a>@*durumu true olanları listele*@
                         <a href="/Fatura/OdenmeyenFatura" class="w3-bar-item w3-button">Ödenmeyen Faturalar </a>@*durumu false olanları listele*@
 
                         <a href="#" class="w3-bar-item w3-button">Fatura Çıkart </a>@*yeni liste id ye göre rapor al diyince pdf formata geç*@
@@ -190,14 +192,13 @@
                     </div>
                 </div>
 
-                <a href="~/Views/Anasayfa/LogOut" class="list-group-item list-group-item-action bg-light">Çıkış Yap</a>
+                <a href="/Anasayfa/LogOut" class="list-group-item list-group-item-action bg-light">Çıkış Yap</a>
             </div>
         </div>
+
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
-
-
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <button class="btn btn-primary" id="menu-toggle">Menü</button>
@@ -205,7 +206,6 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="container">
 
                     <a href="#" class="btn btn-danger" title="İlk Kayıt Olanlar İçin Yapılacaklar" data-toggle="popover" data-trigger="focus" data-content="Yeni Kayıt İşlemlerinizde ->Kullanıcı İşlemleri->Profilimi Güncelle kısmından çalıştınız laboratuvar ve personel türünüzü seçiniz.">İlk Kayıt İşlemi</a>
@@ -215,7 +215,7 @@
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="/Anasayfa/Index">Anasayfa <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/HastaAnasayfa/Index">Anasayfa <span class="sr-only">(current)</span></a>
                         </li>
 
 
@@ -229,7 +229,7 @@
                                 Ayarlar
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/Panelim/Index">Hesabım</a>
+                                <a class="dropdown-item" href="/Anasayfa/ProfilGunGetir">Hesabım</a>
                                 <a class="dropdown-item" href="/Anasayfa/LogOut">Çıkış Yap</a>
                                 <div class="dropdown-divider"></div>
                             </div>
@@ -256,12 +256,6 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });</script>
-
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="popover"]').popover();
-        });
-    </script>
 
 </body>
 

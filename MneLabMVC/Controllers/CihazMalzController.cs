@@ -29,11 +29,6 @@ namespace MneLabMVC.Controllers
         public ActionResult MalzemeEkle(MalzemelerTBL m)
         {
 
-            if (!ModelState.IsValid)
-            {
-
-                return View();
-            }
 
 
             db.MalzemelerTBL.Add(m);
@@ -48,9 +43,15 @@ namespace MneLabMVC.Controllers
 
             return View("MalzemeGetir",malzeme);
         }
-
+        [HttpPost]
         public ActionResult MalzemeGuncelle(MalzemelerTBL m)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return View("MalzemeGetir");
+
+            }
             var malgun = db.MalzemelerTBL.Find(m.MalzemeID);
             malgun.Malzeme = m.Malzeme;
             malgun.MalzemeDetay = m.MalzemeDetay;

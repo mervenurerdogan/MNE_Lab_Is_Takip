@@ -30,6 +30,13 @@ namespace MneLabMVC.Controllers
             return View(degerler);
         }
 
+        public ActionResult RaporListeYazdir()
+        {
+            var dosya = db.RaporlarTBL.ToList();
+
+            return View(dosya);
+        }
+
         [HttpGet]
         public ActionResult RaporEkle()
         {
@@ -150,7 +157,24 @@ namespace MneLabMVC.Controllers
 
             ViewBag.numdgr = numdeger;
 
-           
+
+            List<SelectListItem> turdeger = (from i in db.RaporTurTBL.ToList()
+
+                                             select new SelectListItem
+                                             {
+
+                                                 Text = i.RaporTur,
+                                                 Value = i.RaporTurID.ToString()
+                                             }
+
+                                          ).ToList();
+
+            ViewBag.turdgr = turdeger;
+
+            rapor.RaporDurum = true;
+
+            db.SaveChanges();
+
 
             return View("RaporGetir",rapor);
         }
@@ -163,5 +187,7 @@ namespace MneLabMVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+
     }
 }
