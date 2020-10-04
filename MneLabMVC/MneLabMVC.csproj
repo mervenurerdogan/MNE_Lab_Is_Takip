@@ -132,6 +132,7 @@
     <Compile Include="Controllers\CihazMalzController.cs" />
     <Compile Include="Controllers\DeneyController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
+    <Compile Include="Controllers\HakkimizdaController.cs" />
     <Compile Include="Controllers\HastaAnasayfaController.cs" />
     <Compile Include="Controllers\HastaLoginController.cs" />
     <Compile Include="Controllers\HastaMesajlarController.cs" />
@@ -615,6 +616,7 @@
     <Content Include="Views\Rapor\RaporListeYazdir.cshtml" />
     <Content Include="Views\Fatura\FaturaListeYazdir.cshtml" />
     <Content Include="Views\Fatura\FaturaBilgiGetir.cshtml" />
+    <Content Include="Views\Hakkimizda\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
