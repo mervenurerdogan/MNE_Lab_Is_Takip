@@ -69,7 +69,7 @@
 
                     <a href="#" class="list-group-item list-group-item-action bg-light">Rapor İşlemleri</a>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="#" class="w3-bar-item w3-button">Raporlarımı Görüntüle</a>@*Rapor listesi*@
+                        <a href="/Raporlarim_Hasta/HastaRaporlar/@Session["NumuneID"].ToString()" class="w3-bar-item w3-button">Raporlarımı Görüntüle</a>@*Rapor listesi*@
                       
 
                     </div>
@@ -80,7 +80,7 @@
 
                     <a href="#" class="list-group-item list-group-item-action bg-light">Fatura İşlemleri</a>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="#" class="w3-bar-item w3-button">Faturalarımı Görüntüle</a>@*Fatura listesi*@
+                        <a href="/Faturalarin_Hasta/HastaFaturalar/@Session["NumuneID"].ToString()" class="w3-bar-item w3-button">Faturalarımı Görüntüle</a>@*Fatura listesi*@
                     
 
                       
@@ -138,7 +138,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/HastaAnasayfa/HastaProfilGunGetir">Hesabım</a>
-                                <a class="dropdown-item" href="~/Views/HastaAnasayfa/">Çıkış Yap</a>
+                                <a class="dropdown-item" href="/HastaAnasayfa/LogOut">Çıkış Yap</a>
                                 <div class="dropdown-divider"></div>
                             </div>
                         </li>

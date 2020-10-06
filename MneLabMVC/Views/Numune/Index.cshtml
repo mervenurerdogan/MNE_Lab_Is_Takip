@@ -1,6 +1,7 @@
-﻿
-@using MneLabMVC.Models.Entitys
-@model List<NumunelerTBL>
+﻿@using MneLabMVC.Models.Entitys
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<NumunelerTBL>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -73,7 +74,18 @@
         }
 
     </table>
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa}))
+
+    <br />
+
     <a href="/Numune/NumuneEkle" class="btn btn-primary">Numune Ekle</a>
+
+  
+    <br />
+    <br />
+    <h3 style="color:red">Personelin Dikkatine!!!</h3>
+    <p>Yeni Kayıt Yapılan Numunelerde sisteme giriş yapabilmeleri için numunenin <b>mail adresini</b> alıp <b>geçici şifrelerini</b> vermeyi unutmayınız.</p>
+
 </body>
 
 </html>

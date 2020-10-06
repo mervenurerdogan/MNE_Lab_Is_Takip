@@ -6,13 +6,16 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+
+    <title>Numune Kayıt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-<title>Numune Kayıt</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+</head>
 
 <body>
     <br />
@@ -25,7 +28,8 @@
         <div class="w3-row w3-section">
 
             <div class="w3-rest">
-                <input class="w3-input w3-border" name="NumuneAd" type="text" placeholder="Adınız">
+            
+                <input class="w3-input w3-border" name="NumuneAd" type="text" placeholder="Numunein Adı">
             </div>
         </div>
 
@@ -33,7 +37,8 @@
         <div class="w3-row w3-section">
 
             <div class="w3-rest">
-                <input class="w3-input w3-border" name="NumuneSoyad" type="text" placeholder="Soyadınız">
+               
+                <input class="w3-input w3-border" name="NumuneSoyad" type="text" placeholder="Numunenin Soyadı">
             </div>
         </div>
 
@@ -41,7 +46,7 @@
 
             <div class="w3-rest">
 
-                @Html.DropDownListFor(x => x.NumuneTurTBL.NumuneTurID, (List<SelectListItem>)ViewBag.dgrnum, new { @class = "w3-input w3-border" })
+                @Html.DropDownListFor(x => x.NumuneTurTBL.NumuneTurID, (List<SelectListItem>)ViewBag.dgrnum,"Numune Türünü Seçiniz...", new { @class = "w3-input w3-border" })
             </div>
         </div>
 
@@ -52,7 +57,7 @@
 
             <div class="w3-rest">
 
-                @Html.DropDownListFor(x => x.PersonellerTBL.PersonelID, (IEnumerable<SelectListItem>)ViewBag.dgrper, new { @class = "w3-input w3-border" })
+                @Html.DropDownListFor(x => x.PersonellerTBL.PersonelID, (IEnumerable<SelectListItem>)ViewBag.dgrper,"Numune Alan Personeli Seçiniz...", new { @class = "w3-input w3-border" })
             </div>
         </div>
 
@@ -60,7 +65,7 @@
 
             <div class="w3-rest">
 
-                @Html.DropDownListFor(x => x.LaboratuvarlarTBL.LabID, (List<SelectListItem>)ViewBag.dgrlab, new { @class = "w3-input w3-border" })
+                @Html.DropDownListFor(x => x.LaboratuvarlarTBL.LabID, (List<SelectListItem>)ViewBag.dgrlab,"Numune Alınan Laboratuvarı Seçiniz...",new { @class = "w3-input w3-border" })
             </div>
         </div>
 
@@ -78,8 +83,8 @@
         <div class="w3-row w3-section">
 
             <div class="w3-rest">
-                <label>Numune Miktar(ml/gr)</label>
-                @Html.TextBoxFor(x=>x.NumuneMiktar, new { @class= "w3-input w3-border" })
+             
+           <input name="NumuneMiktar" type="number" class="w3-input w3-border" placeholder="Numune Mikatarını Giriniz(ml/gr)..." />
 
             </div>
         </div>
@@ -88,7 +93,7 @@
         <div class="w3-row w3-section">
 
             <div class="w3-rest">
-                <label>Numune Adet(Tüp Adedi)</label>
+            
                 <input type="text" class="w3-input w3-border" name="NumuneAdet" placeholder="Numune Adetini  Giriniz.." />
 
             </div>
@@ -98,7 +103,7 @@
         <div class="w3-row w3-section">
 
             <div class="w3-rest">
-                <label>Numune Mail </label>
+             
                 <input type="text" class="w3-input w3-border" name="Mail" placeholder="Numune Mailini Alın" />
 
             </div>
@@ -107,7 +112,7 @@
         <div class="w3-row w3-section">
 
             <div class="w3-rest">
-                <label>Numune Şifre Verin </label>
+           
                 <input type="text" class="w3-input w3-border" name="NumSifre1" placeholder="Numune Geçici Şifre  Oluşturun" />
 
             </div>
@@ -116,7 +121,7 @@
         <div class="w3-row w3-section">
 
             <div class="w3-rest">
-                <label>Numune Şifre Verin </label>
+                
                 <input type="text" class="w3-input w3-border" name="NumSifre2" placeholder="Numune Geçici  Şifre  Oluşturun" />
 
             </div>
@@ -127,7 +132,7 @@
 
 
 
-        <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Numune Ekle</button>
+        <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding"   data-toggle="popover" title="İlk Kayıt Giriş Yapanlar İçin " data-content="Yeni Kayıt İşlemlerinizde ->Kullanıcı İşlemleri->Profilimi Güncelle kısmından çalıştınız laboratuvar ve personel türünüzü seçiniz.">Numune Ekle</button>
 
     </form>
 

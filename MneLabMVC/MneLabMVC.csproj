@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -129,9 +135,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AnasayfaController.cs" />
+    <Compile Include="Controllers\boşController.cs" />
     <Compile Include="Controllers\CihazMalzController.cs" />
     <Compile Include="Controllers\DeneyController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
+    <Compile Include="Controllers\Faturalarin_HastaController.cs" />
     <Compile Include="Controllers\HakkimizdaController.cs" />
     <Compile Include="Controllers\HastaAnasayfaController.cs" />
     <Compile Include="Controllers\HastaLoginController.cs" />
@@ -147,6 +155,7 @@
     <Compile Include="Controllers\OnaylananRaporController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\RaporController.cs" />
+    <Compile Include="Controllers\Raporlarim_HastaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +244,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -617,6 +627,15 @@
     <Content Include="Views\Fatura\FaturaListeYazdir.cshtml" />
     <Content Include="Views\Fatura\FaturaBilgiGetir.cshtml" />
     <Content Include="Views\Hakkimizda\Index.cshtml" />
+    <Content Include="Views\Raporlarim_Hasta\HastaRaporlar.cshtml" />
+    <Content Include="Views\boş\Index.cshtml" />
+    <Content Include="Views\Faturalarin_Hasta\HastaFaturalar.cshtml" />
+    <Content Include="Views\Personel\DeneyGecmisi.cshtml" />
+    <Content Include="Views\Personel\OnayladimRaporlar.cshtml" />
+    <Content Include="Views\Personel\KestigimFaturalar.cshtml" />
+    <Content Include="Views\Personel\KestigimFaturaYazdir.cshtml" />
+    <Content Include="Views\Personel\OnayladıimRaporYazdir.cshtml" />
+    <Content Include="Views\Personel\YaptigimDeneyYazdir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -33,6 +33,7 @@ namespace MneLabMVC.Controllers
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.Mail, false);
 
+                Session["PersonelID"] = bilgiler.PersonelID.ToString();
                 Session["Mail"] = bilgiler.Mail.ToString();
                 Session["PersonelAd"] = bilgiler.PersonelAd.ToString();
                 Session["PersonelSoyad"] = bilgiler.PersonelSoyad.ToString();

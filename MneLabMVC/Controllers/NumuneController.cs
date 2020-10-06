@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MneLabMVC.Models.Entitys;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MneLabMVC.Controllers
 {
@@ -12,16 +14,16 @@ namespace MneLabMVC.Controllers
         LaboratuvarDBEntities2 db = new LaboratuvarDBEntities2();
 
         // GET: Numune
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var degerler = db.NumunelerTBL.ToList();
+            var degerler = db.NumunelerTBL.ToList().ToPagedList(sayfa,5);
             return View(degerler);
         }
 
         [HttpGet]
         public ActionResult NumuneEkle()
         {
-            List<SelectListItem> degerler = (from i in db.PersonellerTBL.ToList()
+            List<SelectListItem> degerler = (from i in db.PersonellerTBL.Where(x=>x.PersonelTurTBL.PersonelTurID==2).ToList()
 
                                              select new SelectListItem
                                              {

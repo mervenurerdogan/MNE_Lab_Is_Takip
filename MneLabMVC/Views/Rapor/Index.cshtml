@@ -1,5 +1,7 @@
 ﻿@using MneLabMVC.Models.Entitys
-@model List<RaporlarTBL>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<RaporlarTBL>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -24,6 +26,7 @@
 
     <table class="table table-responsive-sm">
         <tr class="w3-light-grey w3-hover-red">
+            <th>Rapor ID</th>
             <th>Rapor Türü</th>
             <th>Rapor No</th>
             <th>Rapor Düzenlenme Tarihi</th>
@@ -31,11 +34,6 @@
             <th>Rapor Çıkaran Personel</th>
             <th>Rapor Sahibi </th>
       
-
-
-
-
-
 
 
 
@@ -47,6 +45,7 @@
         {
 
             <tr class="w3-hover-blue">
+                <td>@rap.RaporID</td>
                 <td>@rap.RaporTurTBL.RaporTur</td>
                 <td>@rap.RaporNo</td>
                 <td>@Convert.ToDateTime(rap.RaporDuzenTarih).ToShortDateString()</td>
@@ -65,6 +64,8 @@
         }
 
     </table>
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa}))
+
     <a href="/Rapor/RaporEkle" class="btn btn-primary">Rapor Ekle</a>
     <a href="/Rapor/RaporListeYazdir" style="margin-left:50px" class="btn btn-danger">Liste Yazdır</a>
 </body>

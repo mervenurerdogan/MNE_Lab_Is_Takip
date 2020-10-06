@@ -1,0 +1,58 @@
+﻿@using MneLabMVC.Models.Entitys
+@model List<FaturalarTBL>
+@{
+    ViewBag.Title = "HastaFaturalar";
+    Layout = "~/Views/Shared/Hasta_Layout.cshtml";
+}
+
+<h2>Faturalarım</h2>
+
+
+
+
+<html>
+
+<head>
+    <title>HastaFaturaGörüntüle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div> </div><br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>ID</th>
+            <th>Fatura Türü</th>
+            <th>Fatura No</th>
+            <th>Fatura Kesim Tarihi</th>
+            <th>Laboratuvar</th>
+            <th>Fatura Veren  Personel</th>
+            <th>Fatura Sahibi Sahibi </th>
+            <th>Fatura Tutarı</th>
+
+
+        </tr>
+        @foreach (var ftr in Model)
+        {
+
+            <tr class="w3-hover-blue">
+                <td>@ftr.FaturaID</td>
+                <td>@ftr.FaturaTurTBL.FaturaTur</td>
+                <td>@ftr.FaturaNo</td>
+                <td>@Convert.ToDateTime(ftr.FaturaTarih).ToShortDateString()</td>
+                <td>@ftr.LaboratuvarlarTBL.LabKodu</td>
+                <td>@ftr.PersonellerTBL.PersonelAd &nbsp @ftr.PersonellerTBL.PersonelSoyad</td>
+                <td>@ftr.NumunelerTBL.NumuneAd &nbsp @ftr.NumunelerTBL.NumuneSoyad</td>
+                <td>@ftr.FaturaTutar</td>
+
+            </tr>
+
+        }
+
+    </table>
+
+</body>
+
+</html>

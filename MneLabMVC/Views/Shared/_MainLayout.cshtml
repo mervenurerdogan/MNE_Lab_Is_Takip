@@ -73,7 +73,7 @@
                     <a href="#" class="list-group-item list-group-item-action bg-light">Personel İşlemleri</a>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
                         <a href="/Personel/Index" class="w3-bar-item w3-button">Personel Görüntüle</a>@*Personel Listesi*@
-                       
+
                         <a href="/Izin/Index" class="w3-bar-item w3-button">İzinli Personeller</a>
                         <a href="/Izin/IzinAl" class="w3-bar-item w3-button">İzin Al</a>
 
@@ -93,16 +93,16 @@
                 </div>
 
 
-                <!--<div class="w3-dropdown-hover">
+                <div class="w3-dropdown-hover">
 
                     <a href="#" class="list-group-item list-group-item-action bg-light">İş Takip İşlemleri</a>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="#" class="w3-bar-item w3-button">Ödeme Kayıtları</a>-->@*Ödeme personel numune miktar listesi*@
-                        <!--<a href="#" class="w3-bar-item w3-button">Numune Takip </a>-->@*numune hangi persnoel hangi tür num tarih*@
-                        <!--<a href="#" class="w3-bar-item w3-button">Deney Yapan Personel Listesi</a>-->@*Deney tablosu personel deney*@
+                        <a href="/Personel/KestigimFaturalar/@Session["PersonelID"].ToString()" class="w3-bar-item w3-button">Onayladığım Faturalar</a>@*#Ödeme personel numune miktar listesi*@
+                        <a href="/Personel/OnayladimRaporlar/@Session["PersonelID"].ToString()" class="w3-bar-item w3-button">Onayladığım Raporlar </a>@*numune hangi persnoel hangi tür num tarih*@
+                        <a href="/Personel/DeneyGecmisi/@Session["PersonelID"].ToString()" class="w3-bar-item w3-button">Yaptığım Deneyler</a>@*Deney tablosu personel deney*@
 
-                    <!--</div>
-                </div>-->
+                    </div>
+                </div>
 
 
                 <div class="w3-dropdown-hover">
@@ -124,8 +124,8 @@
                     <div class="w3-dropdown-content w3-bar-block w3-border">
                         <a href="/Deney/Index" class="w3-bar-item w3-button">Yapılan Deneyleri Görüntüle</a>@*Deney listesi*@
                         <a href="/Deney/DeneyEkle" class="w3-bar-item w3-button">Deney Ekle </a>
-                        <a href="#" class="w3-bar-item w3-button">Sonuçlanan Deneyler</a>@*Deney durumum  true olanalrı listele*@
-                        <a href="#" class="w3-bar-item w3-button">Deney Tanımları </a>@*Yapılan deneylerle ilgili açıklamalar*@
+                        <!--<a href="#" class="w3-bar-item w3-button">Sonuçlanan Deneyler</a>-->@*Deney durumum  true olanalrı listele*@
+                        <!--<a href="#" class="w3-bar-item w3-button">Deney Tanımları </a>-->@*Yapılan deneylerle ilgili açıklamalar*@
                         <a href="/Deney/ListeYazdır" class="w3-bar-item w3-button">Deney Listesini Yazdır </a>
 
                     </div>
@@ -140,7 +140,7 @@
                         <a href="/Rapor/RaporEkle" class="w3-bar-item w3-button">Rapor Ekle </a>
                         <a href="/Rapor/OnayRaporlar" class="w3-bar-item w3-button">Onaylanan Raporlar </a>@*durumu true olanları listele*@
                         <a href="/Rapor/OnaylanmayanRaporlar" class="w3-bar-item w3-button">Onaylanmayan Raporlar </a>@*durumu false olanları listele*@
-                        <a href="#" class="w3-bar-item w3-button">Rapor Çıkart </a>@*yeni liste id ye göre rapor al diyince pdf formata geç*@
+                        <a href="/Rapor/RaporListeYazdir" class="w3-bar-item w3-button">Rapor Çıkart </a>@*yeni liste id ye göre rapor al diyince pdf formata geç*@
 
                     </div>
                 </div>
@@ -148,14 +148,14 @@
                 <div class="w3-dropdown-hover">
 
 
-                    <a href="/Mesajlar/GidenMesaj" class="list-group-item list-group-item-action bg-light">Fatura İşlemleri</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Fatura İşlemleri</a>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
                         <a href="/Fatura/Index" class="w3-bar-item w3-button">Faturaları Görüntüle</a>@*Fatura listesi*@
                         <a href="/Fatura/FaturaEkle" class="w3-bar-item w3-button">Fatura Ekle </a>
                         <a href="/Fatura/OdenenFaturalar" class="w3-bar-item w3-button">Ödenen Faturalar </a>@*durumu true olanları listele*@
                         <a href="/Fatura/OdenmeyenFatura" class="w3-bar-item w3-button">Ödenmeyen Faturalar </a>@*durumu false olanları listele*@
 
-                        <a href="#" class="w3-bar-item w3-button">Fatura Çıkart </a>@*yeni liste id ye göre rapor al diyince pdf formata geç*@
+                        <a href="/Fatura/FaturaListeYazdir" class="w3-bar-item w3-button">Fatura Çıkart </a>@*yeni liste id ye göre rapor al diyince pdf formata geç*@
 
                     </div>
                 </div>
@@ -182,15 +182,15 @@
                 </div>
 
 
-                <div class="w3-dropdown-hover">
+                @*<div class="w3-dropdown-hover">
 
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Duyurular</a>
-                    <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="#" class="w3-bar-item w3-button">Duyuruları Görüntüle</a>
-                        <a href="#" class="w3-bar-item w3-button">Duyuru Ekle </a>
+                        <a href="#" class="list-group-item list-group-item-action bg-light">Duyurular</a>
+                        <div class="w3-dropdown-content w3-bar-block w3-border">
+                            <a href="#" class="w3-bar-item w3-button">Duyuruları Görüntüle</a>
+                            <a href="#" class="w3-bar-item w3-button">Duyuru Ekle </a>
 
-                    </div>
-                </div>
+                        </div>
+                    </div>*@
 
                 <a href="/Anasayfa/LogOut" class="list-group-item list-group-item-action bg-light">Çıkış Yap</a>
             </div>
@@ -208,18 +208,18 @@
                 </button>
                 <div class="container">
 
-                    <a href="#" class="btn btn-danger" title="İlk Kayıt Olanlar İçin Yapılacaklar" data-toggle="popover" data-trigger="focus" data-content="Yeni Kayıt İşlemlerinizde ->Kullanıcı İşlemleri->Profilimi Güncelle kısmından çalıştınız laboratuvar ve personel türünüzü seçiniz.">İlk Kayıt İşlemi</a>
+                    <a href="#" class="btn btn-danger" data-toggle="popover" title="İlk Kayıt Giriş Yapanlar İçin " data-content="Yeni Kayıt İşlemlerinizde ->Kullanıcı İşlemleri->Profilimi Güncelle kısmından çalıştınız laboratuvar ve personel türünüzü seçiniz.">İlk Kayit Giriş</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="/HastaAnasayfa/Index">Anasayfa <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/Anasayfa/Index">Anasayfa <span class="sr-only">(current)</span></a>
                         </li>
 
 
-                       
+
 
 
                         <li class="nav-item dropdown">
@@ -254,6 +254,12 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });</script>
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
 
 </body>
 

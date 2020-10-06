@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MneLabMVC.Models.Entitys;
+using PagedList;
+using PagedList.Mvc;
 
 
 namespace MneLabMVC.Controllers
@@ -87,6 +89,53 @@ namespace MneLabMVC.Controllers
             return RedirectToAction("Index");
 
 
+        }
+
+        public ActionResult DeneyGecmisi(int id)
+        {
+            var dgecmis = db.DeneylerTBL.Where(x => x.DeneyYapanPersonelID1 == id).ToList();
+
+            return View(dgecmis);
+        }
+
+        public ActionResult YaptigimDeneyYazdir(int id)
+        {
+            var dgecmis = db.DeneylerTBL.Where(x => x.DeneyYapanPersonelID1 == id).ToList();
+
+            return View(dgecmis);
+
+            
+        }
+
+        public ActionResult OnayladimRaporlar(int id)
+        {
+
+            var onayraporlarim = db.RaporlarTBL.Where(x => x.PersonelID == id).ToList();
+
+            return View(onayraporlarim);
+        }
+        public ActionResult OnayladıimRaporYazdir(int id)
+        {
+            var onayraporlarim = db.RaporlarTBL.Where(x => x.PersonelID == id).ToList();
+
+            return View(onayraporlarim);
+
+        }
+
+        public ActionResult KestigimFaturalar(int id)
+        {
+
+            var kesfaturalar = db.FaturalarTBL.Where(x => x.PersonelID == id).ToList();
+
+            return View(kesfaturalar);
+
+        }
+
+        public ActionResult KestigimFaturaYazdir(int id)
+        {
+            var kesfaturalar = db.FaturalarTBL.Where(x => x.PersonelID == id).ToList();
+
+            return View(kesfaturalar);
         }
     }
 }

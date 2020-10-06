@@ -45,5 +45,8 @@ namespace MneLabMVC.Controllers
 
             return RedirectToAction("YeniMesaj");
         }
+
+
+       
     }
 }

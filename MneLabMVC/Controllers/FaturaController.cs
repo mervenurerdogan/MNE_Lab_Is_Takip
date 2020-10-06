@@ -156,7 +156,10 @@ namespace MneLabMVC.Controllers
             ViewBag.numdgr = numdeger;
 
 
-         
+            fatura.FaturaDurumu = true;
+
+            db.SaveChanges();
+
 
 
 
@@ -166,23 +169,20 @@ namespace MneLabMVC.Controllers
         public ActionResult FaturaOdemeYap(FaturalarTBL ftr)
         {
             var fatura = db.FaturalarTBL.Find(ftr.FaturaID);
-            fatura.FaturaNo = ftr.FaturaNo;
-            fatura.FaturaTarih = ftr.FaturaTarih;
-            fatura.FaturaTutar = ftr.FaturaTutar;
+            //fatura.FaturaNo = ftr.FaturaNo;
+            //fatura.FaturaTarih = ftr.FaturaTarih;
+            //fatura.FaturaTutar = ftr.FaturaTutar;
 
-            var d1 = db.LaboratuvarlarTBL.Where(x => x.LabID == ftr.LaboratuvarlarTBL.LabID).FirstOrDefault();
-            fatura.LabID = d1.LabID;
+            //var d1 = db.LaboratuvarlarTBL.Where(x => x.LabID == ftr.LaboratuvarlarTBL.LabID).FirstOrDefault();
+            //fatura.LabID = d1.LabID;
 
-            var d2 = db.PersonellerTBL.Where(x => x.PersonelID == ftr.PersonellerTBL.PersonelID).FirstOrDefault();
-            fatura.PersonelID = d2.PersonelID;
+            //var d2 = db.PersonellerTBL.Where(x => x.PersonelID == ftr.PersonellerTBL.PersonelID).FirstOrDefault();
+            //fatura.PersonelID = d2.PersonelID;
 
-            var d3 = db.NumunelerTBL.Where(x => x.NumuneID == ftr.NumunelerTBL.NumuneID).FirstOrDefault();
-            fatura.NumuneID = d3.NumuneID;
+            //var d3 = db.NumunelerTBL.Where(x => x.NumuneID == ftr.NumunelerTBL.NumuneID).FirstOrDefault();
+            //fatura.NumuneID = d3.NumuneID;
 
-            fatura.FaturaDurumu = true;
-
-            db.SaveChanges();
-           
+          
 
 
             return RedirectToAction("Index");

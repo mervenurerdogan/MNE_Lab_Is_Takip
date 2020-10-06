@@ -16,7 +16,7 @@ namespace MneLabMVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "IlkSayfa", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "IlkSayfa", action = "Index", id = UrlParameter.Optional /*id = UrlParameter.Optional*/ }
             );
         }
     }

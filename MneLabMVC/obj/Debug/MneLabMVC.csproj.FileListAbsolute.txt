@@ -81,3 +81,7 @@ C:\Users\a68_m\source\repos\MneLabMVC\MneLabMVC\bin\EntityFramework.dll
 C:\Users\a68_m\source\repos\MneLabMVC\MneLabMVC\bin\EntityFramework.SqlServer.dll
 C:\Users\a68_m\source\repos\MneLabMVC\MneLabMVC\bin\EntityFramework.xml
 C:\Users\a68_m\source\repos\MneLabMVC\MneLabMVC\bin\EntityFramework.SqlServer.xml
+C:\Users\a68_m\source\repos\MneLabMVC\MneLabMVC\bin\PagedList.dll
+C:\Users\a68_m\source\repos\MneLabMVC\MneLabMVC\bin\PagedList.Mvc.dll
+C:\Users\a68_m\source\repos\MneLabMVC\MneLabMVC\bin\PagedList.xml
+C:\Users\a68_m\source\repos\MneLabMVC\MneLabMVC\bin\PagedList.Mvc.xml

@@ -1,0 +1,81 @@
+﻿
+
+
+
+@using MneLabMVC.Models.Entitys
+@model List<FaturalarTBL>
+@{
+    ViewBag.Title = "KestigimFaturalar";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+
+<html>
+
+<head>
+    <title>
+        KestigimFaturalar
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <div>
+        <h2>KestigimFaturalar</h2>
+
+    </div>
+    <br />
+
+    <table class="table table-responsive-sm">
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Fatura ID</th>
+            <th>Fatura Türü</th>
+            <th>Fatura No</th>
+            <th>Fatura Kesim Tarihi</th>
+            <th>Laboratuvar</th>
+            <th>Fatura Kesen Personel</th>
+            <th>Fatura Sahibi </th>
+
+            <th>Fatura Tutar</th>
+
+
+
+
+
+
+
+        </tr>
+
+
+
+        @foreach (var fat in Model)
+        {
+
+            <tr class="w3-hover-blue">
+                <td>@fat.FaturaID</td>
+                <td>@fat.FaturaTurTBL.FaturaTur</td>
+                <td>@fat.FaturaNo</td>
+                <td>@Convert.ToDateTime(fat.FaturaTarih).ToShortDateString()</td>
+                <td>@fat.LaboratuvarlarTBL.LabKodu</td>
+                <td>@fat.PersonellerTBL.PersonelAd &nbsp @fat.PersonellerTBL.PersonelSoyad</td>
+                <td>@fat.NumunelerTBL.NumuneAd &nbsp @fat.NumunelerTBL.NumuneSoyad</td>
+
+                <td>@fat.FaturaTutar</td>
+
+
+
+
+
+            </tr>
+
+        }
+
+    </table>
+    <a href="/Fatura/FaturaEkle" class="btn btn-primary">Fatura Ekle</a>
+    <a href="/Personel/KestigimFaturaYazdir/@Session["PersonelID"].ToString()" style="margin-left:50px" class="btn btn-danger">Liste Yazdır</a>
+</body>
+
+</html>

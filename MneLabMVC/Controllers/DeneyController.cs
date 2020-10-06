@@ -46,7 +46,7 @@ namespace MneLabMVC.Controllers
                                          ).ToList();
             ViewBag.dnyturdgr = dnytur;
 
-            List<SelectListItem> deneyaper = (from i in db.PersonellerTBL.Where(x=>x.PersonelTurID==2).ToList()
+            List<SelectListItem> deneyaper = (from i in db.PersonellerTBL.Where(x=>x.PersonelTurID==2 || x.PersonelTurID==3).ToList()
                                               select new SelectListItem
                                               {
                                                   Text = i.PersonelAd + ' ' + i.PersonelSoyad,
