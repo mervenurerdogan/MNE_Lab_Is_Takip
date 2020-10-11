@@ -16,9 +16,9 @@ namespace MneLabMVC.Controllers
         LaboratuvarDBEntities2 db = new LaboratuvarDBEntities2();
 
 
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var perdeger = db.PersonellerTBL.Where(x=>x.PersonelSilmeDurum==true).ToList();
+            var perdeger = db.PersonellerTBL.Where(x=>x.PersonelSilmeDurum==true).ToList().ToPagedList(sayfa,5);
             //sistem de kayıtlı bütün personeli gösterir
             
             return View(perdeger);
@@ -91,9 +91,9 @@ namespace MneLabMVC.Controllers
 
         }
 
-        public ActionResult DeneyGecmisi(int id)
+        public ActionResult DeneyGecmisi(int id,int sayfa=1)
         {
-            var dgecmis = db.DeneylerTBL.Where(x => x.DeneyYapanPersonelID1 == id).ToList();
+            var dgecmis = db.DeneylerTBL.Where(x => x.DeneyYapanPersonelID1 == id).ToList().ToPagedList(sayfa,5);
 
             return View(dgecmis);
         }
@@ -107,10 +107,10 @@ namespace MneLabMVC.Controllers
             
         }
 
-        public ActionResult OnayladimRaporlar(int id)
+        public ActionResult OnayladimRaporlar(int id, int sayfa = 1)
         {
 
-            var onayraporlarim = db.RaporlarTBL.Where(x => x.PersonelID == id).ToList();
+            var onayraporlarim = db.RaporlarTBL.Where(x => x.PersonelID == id).ToList().ToPagedList(sayfa, 5);
 
             return View(onayraporlarim);
         }
@@ -122,10 +122,10 @@ namespace MneLabMVC.Controllers
 
         }
 
-        public ActionResult KestigimFaturalar(int id)
+        public ActionResult KestigimFaturalar(int id,int sayfa=1)
         {
 
-            var kesfaturalar = db.FaturalarTBL.Where(x => x.PersonelID == id).ToList();
+            var kesfaturalar = db.FaturalarTBL.Where(x => x.PersonelID == id).ToList().ToPagedList(sayfa,5);
 
             return View(kesfaturalar);
 

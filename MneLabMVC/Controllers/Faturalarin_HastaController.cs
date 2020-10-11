@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MneLabMVC.Models.Entitys;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MneLabMVC.Controllers
 {
@@ -16,9 +18,9 @@ namespace MneLabMVC.Controllers
             return View();
         }
 
-        public ActionResult HastaFaturalar(int id)
+        public ActionResult HastaFaturalar(int id,int sayfa=1)
         {
-            var fatura = db.FaturalarTBL.Where(x => x.NumuneID == id).ToList();
+            var fatura = db.FaturalarTBL.Where(x => x.NumuneID == id).ToList().ToPagedList(sayfa,1);
 
             return View(fatura);
         }

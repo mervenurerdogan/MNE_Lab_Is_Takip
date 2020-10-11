@@ -1,5 +1,7 @@
 ﻿@using MneLabMVC.Models.Entitys
-@model List<OdenenFaturaTBL>
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<OdenenFaturaTBL>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -57,6 +59,7 @@
         }
 
     </table>
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
     <a href="/Rapor/RaporEkle" class="btn btn-primary">Odeme Yap</a>
 </body>
 

@@ -1,5 +1,7 @@
 ﻿@using MneLabMVC.Models.Entitys
-@model List<OnaylananRaporTBL>
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<OnaylananRaporTBL>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -41,10 +43,10 @@
         @foreach (var rap in Model)
         {
 
-    <tr class="w3-hover-blue">
-        <td>@rap.RaporlarTBL.RaporNo</td>
-        <td>@rap.PersonellerTBL.PersonelAd &nbsp @rap.PersonellerTBL.PersonelSoyad</td>
-        <td>@Convert.ToDateTime(rap.OnayTarihi).ToShortDateString()</td>
+            <tr class="w3-hover-blue">
+                <td>@rap.RaporlarTBL.RaporNo</td>
+                <td>@rap.PersonellerTBL.PersonelAd &nbsp @rap.PersonellerTBL.PersonelSoyad</td>
+                <td>@Convert.ToDateTime(rap.OnayTarihi).ToShortDateString()</td>
 
 
 
@@ -52,11 +54,13 @@
 
 
 
-    </tr>
+            </tr>
 
         }
 
     </table>
+
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
     <a href="/Rapor/RaporEkle" class="btn btn-primary">Onay  Ekle</a>
 </body>
 

@@ -1,5 +1,7 @@
 ﻿@using MneLabMVC.Models.Entitys
-@model List<IzınTBL>
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<IzınTBL>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -65,6 +67,8 @@
         }
 
     </table>
+
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa}))
     <a href="/Izin/IzinAl" class="btn btn-primary">İzin Ekle</a>
 </body>
 

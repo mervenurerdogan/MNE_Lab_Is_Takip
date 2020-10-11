@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MneLabMVC.Models.Entitys;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MneLabMVC.Controllers
 {
@@ -11,18 +13,18 @@ namespace MneLabMVC.Controllers
     {
         LaboratuvarDBEntities2 db = new LaboratuvarDBEntities2();
         // GET: Mesajlar
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
             var personelMail = (string)Session["Mail"].ToString();
-            var mesajlar = db.MesajlarTBL.Where(x => x.Alıcı == personelMail.ToString()).ToList();
+            var mesajlar = db.MesajlarTBL.Where(x => x.Alıcı == personelMail.ToString()).ToList().ToPagedList(sayfa,5);
             //gelen mesajlar
             return View(mesajlar);
         }
 
-        public ActionResult GidenMesaj()
+        public ActionResult GidenMesaj(int sayfa=1)
         {
             var personelMail = (string)Session["Mail"].ToString();
-            var mesajlar = db.MesajlarTBL.Where(x => x.Gonderen == personelMail.ToString()).ToList();
+            var mesajlar = db.MesajlarTBL.Where(x => x.Gonderen == personelMail.ToString()).ToList().ToPagedList(sayfa, 5);
 
             return View(mesajlar);
         }

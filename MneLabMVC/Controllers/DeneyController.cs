@@ -5,6 +5,8 @@ using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using MneLabMVC.Models.Entitys;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MneLabMVC.Controllers
 {
@@ -13,9 +15,9 @@ namespace MneLabMVC.Controllers
 
         LaboratuvarDBEntities2 db = new LaboratuvarDBEntities2();
         // GET: Deney
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var deneydeger = db.DeneylerTBL.ToList();
+            var deneydeger = db.DeneylerTBL.ToList().ToPagedList(sayfa,5);
             return View(deneydeger);
         }
 
@@ -25,9 +27,9 @@ namespace MneLabMVC.Controllers
             return View(dosya);
         }
 
-        public ActionResult OnaylananDeneyler()
+        public ActionResult OnaylananDeneyler(int sayfa=1)
         {
-            var degerler = db.DeneylerTBL.Where(x => x.DeneyDurum == true).ToList();
+            var degerler = db.DeneylerTBL.Where(x => x.DeneyDurum == true).ToList().ToPagedList(sayfa,5);
 
             return View(degerler);
 

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MneLabMVC.Models.Entitys;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MneLabMVC.Controllers
 {
@@ -12,9 +14,9 @@ namespace MneLabMVC.Controllers
         LaboratuvarDBEntities2 db = new LaboratuvarDBEntities2();
 
         // GET: Izin
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var degerler = db.IzınTBL.Where(x => x.PersonelIzinDurumu == true).ToList();
+            var degerler = db.IzınTBL.Where(x => x.PersonelIzinDurumu == true).ToList().ToPagedList(sayfa,5);
             //durumu true olan yani izinli olanları gösterecek
             return View(degerler);
         }

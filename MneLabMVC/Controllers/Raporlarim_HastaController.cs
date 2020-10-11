@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using MneLabMVC.Models.Entitys;
 using System.Web.SessionState;
-
+using PagedList;
+using PagedList.Mvc;
 
 namespace MneLabMVC.Controllers
 {
@@ -19,10 +20,10 @@ namespace MneLabMVC.Controllers
             return View();
         }
 
-        public ActionResult HastaRaporlar(int  id)
+        public ActionResult HastaRaporlar(int  id,int sayfa=1)
         {
             
-                var raporlarim = db.RaporlarTBL.Where(x => x.NumuneID==id).ToList();
+                var raporlarim = db.RaporlarTBL.Where(x => x.NumuneID==id).ToList().ToPagedList(sayfa,5);
                 return View(raporlarim);
           
        

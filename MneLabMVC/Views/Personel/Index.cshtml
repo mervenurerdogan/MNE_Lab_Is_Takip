@@ -1,5 +1,7 @@
 ﻿@using MneLabMVC.Models.Entitys
-@model List<PersonellerTBL>
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<PersonellerTBL>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -28,7 +30,7 @@
             <th>Mail</th>
             <th>Personel Tür</th>
             
-            <th>SİL</th>
+          
          
 
 
@@ -49,7 +51,7 @@
                 <td>@per.Mail</td>
                 <td>@per.PersonelTurTBL.PersonelTur</td>
               
-                <td><a href="/Personel/PersonelSil/@per.PersonelID" class="btn btn-danger">Sil</a></td>
+         
 
              
 
@@ -58,6 +60,7 @@
         }
 
     </table>
+    @Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new { sayfa }))
     <a href="/Personel/PersonelEkle" class="btn btn-primary">Personel Ekle</a>
 </body>
 

@@ -1,5 +1,7 @@
 ﻿@using MneLabMVC.Models.Entitys
-@model List<FaturalarTBL>
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<FaturalarTBL>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -66,6 +68,8 @@
         }
 
     </table>
+
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
     <a href="/Fatura/FaturaEkle" class="btn btn-primary">Fatura Ekle</a>
     <a href="/Fatura/FaturaListeYazdir" style="margin-left:50px" class="btn btn-danger">Liste Yazdır</a>
 </body>

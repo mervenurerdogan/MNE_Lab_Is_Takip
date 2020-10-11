@@ -5,6 +5,9 @@ using System.Security.Permissions;
 using System.Web;
 using System.Web.Mvc;
 using MneLabMVC.Models.Entitys;
+using PagedList;
+using PagedList.Mvc;
+
 namespace MneLabMVC.Controllers
 {
     public class OdenenFaturalarController : Controller
@@ -12,9 +15,9 @@ namespace MneLabMVC.Controllers
 
         LaboratuvarDBEntities2 db = new LaboratuvarDBEntities2();
         // GET: OdenenFaturalar
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var degeler = db.OdenenFaturaTBL.ToList();
+            var degeler = db.OdenenFaturaTBL.ToList().ToPagedList(sayfa,5);
             
             return View(degeler);
         }

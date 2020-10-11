@@ -1,5 +1,7 @@
 ﻿@using MneLabMVC.Models.Entitys
-@model List<FaturalarTBL>
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<FaturalarTBL>
 
 @{
     ViewBag.Title = "OdenenFaturalar";
@@ -67,6 +69,8 @@
         }
 
     </table>
+
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
     <a href="/Fatura/FaturaEkle" class="btn btn-primary">Fatura Ekle</a>
 </body>
 

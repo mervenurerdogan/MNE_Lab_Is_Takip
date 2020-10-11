@@ -4,15 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MneLabMVC.Models.Entitys;
+using PagedList;
+using PagedList.Mvc;
+
 namespace MneLabMVC.Controllers
 {
     public class FaturaController : Controller
     {
         LaboratuvarDBEntities2 db = new LaboratuvarDBEntities2();
         // GET: Fatura
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var degerler = db.FaturalarTBL.ToList();
+            var degerler = db.FaturalarTBL.ToList().ToPagedList(sayfa,5);
             //ödenen ödenmeyen tüm faturalar
             return View(degerler);
         }
@@ -24,16 +27,16 @@ namespace MneLabMVC.Controllers
             return View(fatura);
         }
 
-        public ActionResult OdenmeyenFatura()
+        public ActionResult OdenmeyenFatura(int sayfa=1)
         {
-            var degerler = db.FaturalarTBL.Where(x => x.FaturaDurumu == false).ToList();
+            var degerler = db.FaturalarTBL.Where(x => x.FaturaDurumu == false).ToList().ToPagedList(sayfa,5);
             //durumu false olanalra yani ödenmeyenleri listeleyecek
             return View(degerler);
         }
 
-        public ActionResult OdenenFaturalar()
+        public ActionResult OdenenFaturalar(int sayfa=1)
         {
-            var degerler = db.FaturalarTBL.Where(x => x.FaturaDurumu == true).ToList();
+            var degerler = db.FaturalarTBL.Where(x => x.FaturaDurumu == true).ToList().ToPagedList(sayfa,5);
 
             return View(degerler);
         }

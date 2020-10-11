@@ -1,5 +1,7 @@
 ﻿@using MneLabMVC.Models.Entitys
-@model List<MesajlarTBL>
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<MesajlarTBL>
 @{
     ViewBag.Title = "GelenMesaj";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -52,7 +54,7 @@
         }
 
     </table>
-
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
 </body>
 
 </html>
